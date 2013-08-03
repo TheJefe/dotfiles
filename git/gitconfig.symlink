@@ -1,0 +1,17 @@
+[user]
+	name = Jeff Koenig
+	email = jkoenig@thinkthroughmath.com
+[core]
+	editor = vim
+	pager = less -r
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
+[color]
+	ui = true
+[alias]
+  g  = grep --break --heading --line-number
+ lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+[web]
+	browser = open
