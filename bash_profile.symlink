@@ -69,6 +69,10 @@ function kr {
 killall -9 ruby
 }
 
+function v() {
+  $@ | vim -R -
+}
+
 #### share history across terminal sessions
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups  
