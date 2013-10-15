@@ -98,3 +98,5 @@ alias gcontains="git branch -r --contains"
 # sets up gc for auto-complete
 __git_complete gc _git_checkout
 __git_complete gp _git_pull
+__git_complete gl _git_log
+__git_complete gb _git_branch
