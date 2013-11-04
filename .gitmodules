@@ -1,3 +1,6 @@
 [submodule "vim.symlink"]
 	path = vim.symlink
 	url = git@github.com:jkoenig311/.vim.git
+[submodule "scripts.symlink"]
+	path = scripts.symlink
+	url = git@github.com:jkoenig311/scripts.git
