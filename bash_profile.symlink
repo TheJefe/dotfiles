@@ -4,6 +4,9 @@ PATH=/usr/local/sbin:$PATH
 PATH=$PATH:~/scripts
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting ### no longer needed...
 
+### Setup for pghelper
+export PGHOST=localhost
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 alias herkou="heroku"
@@ -12,7 +15,7 @@ alias herkou="heroku"
 alias servers_start="RAILS_ENV=test rake servers:start"
 alias prepare="bundle exec rake test:prepare"
 
-#Grunt path
+#NPM path
 export PATH="/usr/local/share/npm/bin:$PATH"
 
 # change terminal
@@ -96,6 +99,10 @@ alias show="git show"
 alias gcontains="git branch -r --contains"
 alias gr="git reset --hard"
 alias gpn="git pull --no-ff"
+alias gg="git grep --break --heading --line-number"
+
+# show list of directories
+alias d='ls -l | grep ^d'
 
 # sets up gc for auto-complete
 __git_complete gc _git_checkout
