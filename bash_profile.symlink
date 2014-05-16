@@ -20,11 +20,7 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 
 # change terminal
 #export PS1="\w$ "
-# autocomplete get branch name
-function parse_git_branch () {
-git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
- 
+
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
@@ -98,7 +94,7 @@ alias gf="git fetch"
 alias show="git show"
 alias gcontains="git branch -r --contains"
 alias gr="git reset --hard"
-alias gpn="git pull --no-ff"
+alias gpn="git pull --no-ff origin"
 alias gg="git grep --break --heading --line-number"
 
 # show list of directories
