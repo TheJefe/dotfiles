@@ -1,13 +1,52 @@
-set-option -g default-shell /bin/zsh
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+set-option -g default-shell /usr/local/bin/bash
+set-option -g default-command "reattach-to-user-namespace -l bash"
 set -g default-terminal "screen-256color"
 
 set -g prefix C-a
 unbind C-b
 bind C-a send-prefix
 
+# act like vim
 set -g status-keys vi
 setw -g mode-keys vi
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind-key -r C-h select-window -t :-
+bind-key -r C-l select-window -t :+
+bind < resize-pane -L 4
+bind > resize-pane -R 4
+bind - resize-pane -D 4
+bind + resize-pane -U 4
 
 # clear screen
 bind -n C-k send-keys -R \; clear-history
+
+# use current directory for new panes
+# bind '"' split-window -c "#{pane_current_path}"
+# bind % split-window -h -c "#{pane_current_path}"
+# bind c new-window -c "#{pane_current_path}"
+
+# Set a Ctrl-b shortcut for reloading your tmux config
+bind r source-file ~/.tmux.conf
+
+# Automatically set window title
+setw -g automatic-rename
+
+# 12 hour clock
+set-window-option -g clock-mode-style 12
+
+# Status bar customization
+set -g status-utf8 on
+set -g status-bg black
+set -g status-fg white
+set -g status-interval 5
+set -g status-left-length 90
+set -g status-right-length 60
+set -g status-left "#[fg=Green]#S#[fg=white]::#[fg=blue] \
+#(hostname -s)#[fg=white]::##[fg=yellow]#(curl ipecho.net/plain;echo)"
+set -g status-justify left
+set -g status-right '#[fg=Cyan]#S #[fg=white]%a %d %b %R' 

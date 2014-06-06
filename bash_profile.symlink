@@ -21,6 +21,12 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 # change terminal
 #export PS1="\w$ "
 
+## Liquid prompt
+source /Users/Jeff/git/liquidprompt/liquidprompt
+
+## tmuxinator autocompletion
+source ~/.tmuxinator.bash
+
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
@@ -79,13 +85,13 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 
 # After each command, save and reload history
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# COMMENTED OUT BECAUSE IT CONFLICTED WITH LIQUID PROMPT
+#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-## Liquid prompt
-source /Users/Jeff/git/liquidprompt/liquidprompt
 
 # git alias
 alias gs="git status"
+alias gss='git status -s'
 alias gc="git checkout"
 alias gp="git pull"
 alias gl="git lg"
@@ -93,7 +99,7 @@ alias gb="git branch"
 alias gf="git fetch"
 alias show="git show"
 alias gcontains="git branch -r --contains"
-alias gr="git reset --hard"
+alias gr="git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
 alias gpn="git pull --no-ff origin"
 alias gg="git grep --break --heading --line-number"
 
@@ -106,4 +112,5 @@ __git_complete gp _git_pull
 __git_complete gpn _git_pull
 __git_complete gl _git_log
 __git_complete gb _git_branch
-__git_complete gr _git_reset
+__git_complete tb _git_checkout
+# tb is a script used for setting up a specific branch to be tested locally
