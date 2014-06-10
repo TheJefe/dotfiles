@@ -49,4 +49,7 @@ set -g status-right-length 60
 set -g status-left "#[fg=Green]#S#[fg=white]::#[fg=blue] \
 #(hostname -s)#[fg=white]::##[fg=yellow]#(curl ipecho.net/plain;echo)"
 set -g status-justify left
-set -g status-right '#[fg=Cyan]#S #[fg=white]%a %d %b %R' 
+set -g status-right '#[fg=Cyan]#S #[fg=white]⏰  %a %d %b %I:%M%p'
+
+# Powerline
+source /Users/Jeff/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf
