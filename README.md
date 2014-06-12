@@ -10,3 +10,8 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
     git clone git@github.com:jkoenig311/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
     ./script/bootstrap
+    git submodule init
+    git submodule update
+    cd ~/.vim
+    git submodule init
+    git submodule update
