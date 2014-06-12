@@ -22,7 +22,7 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 #export PS1="\w$ "
 
 ## Liquid prompt
-source /Users/Jeff/git/liquidprompt/liquidprompt
+source ~/git/liquidprompt/liquidprompt
 
 ## tmuxinator autocompletion
 source ~/.tmuxinator.bash
