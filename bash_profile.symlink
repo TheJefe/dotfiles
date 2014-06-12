@@ -31,8 +31,8 @@ RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
 GREEN="\[\033[0;32m\]"
 NO_COLOUR="\[\033[0m\]"
- 
-PS1="$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+
+#PS1="$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 
 # bash-completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -55,18 +55,18 @@ export RUBY_GC_MALLOC_LIMIT=100000000
 export RUBY_FREE_MIN=200000
 
 function la {
-	ls -alh $1
+  ls -alh $1
 }
 
 function cf {
-	cd -P $1
+  cd -P $1
 }
 
 function fd {
-for FILE in "$@" 
+for FILE in "$@"
 do
-	echo $FILE
-	grep "$1" $FILE
+  echo $FILE
+  grep "$1" $FILE
 done | mvim -
 }
 
@@ -80,14 +80,13 @@ function v() {
 
 #### share history across terminal sessions
 # avoid duplicates..
-export HISTCONTROL=ignoredups:erasedups  
+export HISTCONTROL=ignoredups:erasedups
 # append history entries..
 shopt -s histappend
 
 # After each command, save and reload history
 # COMMENTED OUT BECAUSE IT CONFLICTED WITH LIQUID PROMPT
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
 
 # git alias
 alias gs="git status"
