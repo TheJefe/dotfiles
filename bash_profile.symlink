@@ -98,7 +98,8 @@ alias gb="git branch"
 alias gf="git fetch"
 alias show="git show"
 alias gcontains="git branch -r --contains"
-alias gr="git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
+alias gr='git reset --hard'
+alias grr="git reset --hard origin/rc"
 alias gpn="git pull --no-ff origin"
 alias gg="git grep --break --heading --line-number"
 
@@ -112,4 +113,5 @@ __git_complete gpn _git_pull
 __git_complete gl _git_log
 __git_complete gb _git_branch
 __git_complete tb _git_checkout
+__git_complete gr _git_checkout
 # tb is a script used for setting up a specific branch to be tested locally
