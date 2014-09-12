@@ -58,4 +58,4 @@ set -g status-justify left
 set -g status-right '#[fg=Cyan]#S #[fg=white]⏰  %a %d %b %I:%M%p'
 
 # Powerline
-source /Users/Jeff/Library/Python/2.7/lib/python/site-packages/powerline/bindings/tmux/powerline.conf
+source ~/.powerline.conf
