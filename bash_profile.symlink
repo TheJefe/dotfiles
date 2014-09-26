@@ -75,6 +75,14 @@ function v() {
   $@ | vim -R -
 }
 
+# Test Branch: this sets me up to test a particular branch the way I like
+function tb() {
+  git checkout rc
+  git reset --hard origin/rc
+  git pull
+  git pull --no-ff --no-edit origin $@
+}
+
 #### share history across terminal sessions
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups
@@ -113,6 +121,6 @@ __git_complete gb _git_branch
 __git_complete gd _git_branch
 __git_complete tb _git_checkout
 __git_complete gr _git_checkout
-# tb is a script used for setting up a specific branch to be tested locally
+# tb is a fuction used for setting up a specific branch to be tested locally
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
