@@ -92,6 +92,7 @@ alias gc="git checkout"
 alias gp="git pull"
 alias gl="git lg"
 alias gb="git branch"
+alias gd="git diff"
 alias gf="git fetch"
 alias show="git show"
 alias gcontains="git branch -r --contains"
@@ -109,6 +110,7 @@ __git_complete gp _git_pull
 __git_complete gpn _git_pull
 __git_complete gl _git_log
 __git_complete gb _git_branch
+__git_complete gd _git_branch
 __git_complete tb _git_checkout
 __git_complete gr _git_checkout
 # tb is a script used for setting up a specific branch to be tested locally
