@@ -100,6 +100,17 @@ else
 fi
 }
 
+function gly {
+if [[ "1" == "$(date +%u)" ]]
+  then
+    yesterworkday="last friday"
+  else
+    yesterworkday="yesterday"
+fi
+
+gl --since='$(yesterworkday)'
+}
+
 #### share history across terminal sessions
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups
