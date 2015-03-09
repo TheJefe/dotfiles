@@ -111,6 +111,10 @@ fi
 gl --since='$(yesterworkday)'
 }
 
+function psgrep(){
+  ps aux | grep $@
+}
+
 #### share history across terminal sessions
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups
