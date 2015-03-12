@@ -107,8 +107,7 @@ if [[ "1" == "$(date +%u)" ]]
   else
     yesterworkday="yesterday"
 fi
-
-gl --since='$(yesterworkday)'
+gl --since=${yesterworkday}
 }
 
 function psgrep(){
