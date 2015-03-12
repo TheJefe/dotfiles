@@ -110,8 +110,14 @@ fi
 gl --since=${yesterworkday}
 }
 
+# this is just a nicer way of greping for a process
 function psgrep(){
   ps aux | grep $@
+}
+
+# Special kill will find processes matching a regex and 'kill -9' them
+function skill(){
+  pgrep -f $@ | xargs kill -9
 }
 
 #### share history across terminal sessions
