@@ -1,0 +1,10 @@
+# ~/.tmuxinator/vrome.yml
+
+name: vrome
+root: ~/
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+#pre_window: rvm use .
+
+windows:
+  - server: vrome
