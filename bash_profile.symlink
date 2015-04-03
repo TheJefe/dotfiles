@@ -100,16 +100,6 @@ else
 fi
 }
 
-function gly() {
-if [[ "1" == "$(date +%u)" ]]
-  then
-    yesterworkday="last friday"
-  else
-    yesterworkday="yesterday"
-fi
-gl --since=${yesterworkday}
-}
-
 # this is just a nicer way of greping for a process
 function psgrep(){
   ps aux | grep $@
@@ -126,16 +116,12 @@ export HISTCONTROL=ignoredups:erasedups
 # append history entries..
 shopt -s histappend
 
-# After each command, save and reload history
-# COMMENTED OUT BECAUSE IT CONFLICTED WITH LIQUID PROMPT
-#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
 # git alias
 alias gs="git status"
 alias gss='git status -s'
 alias gc="git checkout"
 alias gp="git pull"
-alias gl="git lg"
+alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
 alias gb="git branch"
 alias gd="git diff"
 alias gf="git fetch"
@@ -145,9 +131,6 @@ alias gr='git reset --hard'
 alias grr="git reset --hard origin/rc"
 alias gpn="git pull --no-ff origin"
 alias gg="git grep --break --heading --line-number"
-
-# show list of directories
-alias d='ls -l | grep ^d'
 
 # sets up gc for auto-complete
 __git_complete gc _git_checkout
@@ -159,6 +142,20 @@ __git_complete gd _git_branch
 __git_complete tb _git_checkout
 __git_complete gr _git_checkout
 # tb is a fuction used for setting up a specific branch to be tested locally
+
+# this must be defined AFTER 'gl' is aliased
+function gly() {
+if [[ "1" == "$(date +%u)" ]]
+  then
+    yesterworkday="last friday"
+  else
+    yesterworkday="yesterday"
+fi
+gl --since=${yesterworkday}
+}
+
+# show list of directories
+alias d='ls -l | grep ^d'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
