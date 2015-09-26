@@ -157,6 +157,14 @@ gl --since=${yesterworkday}
 # show list of directories
 alias d='ls -l | grep ^d'
 
+# this is a script for listing pull requests
+alias gi="/git/gi/gi; open issues.html; sleep 2; rm issues.html"
+
+# startup my tmux sessions
+alias startup="mux apangea; mux reporting; mux lp; mux vrome;"
+
+alias cc="cd;clear"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export NVM_DIR="/Users/Jeff/.nvm"
