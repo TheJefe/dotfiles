@@ -17,10 +17,6 @@ export DOCKER_TLS_VERIFY=1
 export PATH="/usr/local/heroku/bin:$PATH"
 alias herkou="heroku"
 
-### Rake command alias's
-alias servers_start="RAILS_ENV=test rake servers:start"
-alias prepare="bundle exec rake test:prepare"
-
 # change terminal
 #export PS1="\w$ "
 
@@ -52,12 +48,12 @@ set completion-ignore-case on
 set show-all-if-ambiguous on
 
 # improve ruby performance
-export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_GC_HEAP_INIT_SLOTS=1000000
 export RUBY_HEAP_FREE_MIN=500000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=100000000
-export RUBY_FREE_MIN=200000
+export RUBY_GC_HEAP_FREE_SLOTS=20000
 
 function la {
   ls -alh $1
