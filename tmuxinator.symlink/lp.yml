@@ -13,3 +13,4 @@ windows:
         - vim
         - clear
   - server: git pull --no-edit; npm install; grunt install; grunt serve:dist
+  - term: clear
