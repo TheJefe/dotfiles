@@ -128,6 +128,10 @@ alias grr="git reset --hard origin/rc"
 alias gpn="git pull --no-ff origin"
 alias gg="git grep --break --heading --line-number"
 
+# command correction tool
+# https://github.com/nvbn/thefuck
+alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+
 # sets up gc for auto-complete
 __git_complete gc _git_checkout
 __git_complete gp _git_pull
