@@ -215,6 +215,15 @@ layers configuration. You are free to put any user code."
 
   (setq aggressive-indent 1)
 
+  ; override option sent through ansi-term
+  (defun jnm/term-ansi-make-term (fn &rest args)
+    (let ((new-args (if (string= (second args) "/bin/bash")
+                        (append args (list nil "--login"))
+                      args)))
+      (apply fn new-args)))
+
+  (advice-add 'term-ansi-make-term :around #'jnm/term-ansi-make-term)
+
   )
 
 
