@@ -165,6 +165,9 @@ alias startup="mux apangea; mux reporting; mux lp; mux vrome;"
 
 alias cc="cd;clear"
 
+alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *"
+alias eretag="ctags -R -e --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export NVM_DIR="/Users/Jeff/.nvm"
