@@ -166,7 +166,7 @@ alias startup="mux apangea; mux reporting; mux lp; mux vrome; mux gi-web"
 alias cc="cd;clear"
 
 alias retag="ctags -R --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *"
-alias eretag="ctags -R -e --exclude=.svn --exclude=.git --exclude=node_modules --exclude=tmp *"
+alias eretag="ctags -e -R --extra=+f --exclude=.git --exclude=log --exclude=*min.js --exclude=*.data --exclude=*.dump --exclude=".*" --exclude="*vendor*.js" --exclude=*.yml --exclude=public* --exclude=test/artifacts/* --exclude=spec/* --exclude=coverage/* *"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
