@@ -161,7 +161,7 @@ alias d='ls -l | grep ^d'
 alias gi="/git/gi/gi; open issues.html; sleep 2; rm issues.html"
 
 # startup my tmux sessions
-alias startup="mux apangea; mux reporting; mux lp; mux vrome;"
+alias startup="mux apangea; mux reporting; mux lp; mux vrome; mux gi-web"
 
 alias cc="cd;clear"
 
