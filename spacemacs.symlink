@@ -233,6 +233,10 @@ layers configuration. You are free to put any user code."
 
   (advice-add 'term-ansi-make-term :around #'jnm/term-ansi-make-term)
 
+  ;; Turn off line wrapping
+  (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
+
+
   )
 
 
