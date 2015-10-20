@@ -57,14 +57,15 @@ set -g status-left "#[fg=Green]#S#[fg=white]::#[fg=blue] \
 set -g status-justify left
 set -g status-right '#[fg=Cyan]#S #[fg=white]⏰  %a %d %b %I:%M%p'
 
+# Disabled because emacs likes these bindings
 # Smart pane switching with awareness of vim splits
-is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
-bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
-bind -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
-bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
-bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
-bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
-bind C-l send-keys 'C-l'
+#is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
+#bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
+#bind -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
+#bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
+#bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
+#bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+#bind C-l send-keys 'C-l'
 
 # Powerline
 source ~/.powerline.conf
