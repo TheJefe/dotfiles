@@ -253,6 +253,8 @@ layers configuration. You are free to put any user code."
   (setq interprogram-cut-function 'paste-to-osx)
   (setq interprogram-paste-function 'copy-from-osx))
 
+  (define-key neotree-mode-map (kbd "i") #'neotree-enter-horizontal-split)
+  (define-key neotree-mode-map (kbd "I") #'neotree-enter-vertical-split)
   )
 
 
