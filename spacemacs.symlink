@@ -46,6 +46,7 @@ values."
      syntax-checking
      (version-control :variables
                       diff-hl-flydiff-mode t)
+     ruby
      ruby-on-rails
      )
    ;; List of additional packages that will be installed without being
