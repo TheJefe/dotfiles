@@ -44,8 +44,6 @@ values."
             shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     (version-control :variables
-                      diff-hl-flydiff-mode t)
      ruby
      ruby-on-rails
      )
@@ -53,7 +51,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(key-chord coffee-mode)
+   dotspacemacs-additional-packages '(key-chord coffee-mode diff-hl)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -256,6 +254,12 @@ layers configuration. You are free to put any user code."
 
   ;; Make underscore count as a word character in Ruby mode.
   (modify-syntax-entry ?_ "w" ruby-mode-syntax-table)
+  ;; Configure git gutter (diff-hl) the way I like it
+  (setq diff-hl-side 'left)
+  (global-diff-hl-mode)
+  (diff-hl-margin-mode)
+  (diff-hl-flydiff-mode)
+
   )
 
 
