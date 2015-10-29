@@ -257,7 +257,6 @@ layers configuration. You are free to put any user code."
   ;; Configure git gutter (diff-hl) the way I like it
   (setq diff-hl-side 'left)
   (global-diff-hl-mode)
-  (diff-hl-margin-mode)
   (diff-hl-flydiff-mode)
 
   )
