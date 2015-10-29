@@ -259,6 +259,7 @@ layers configuration. You are free to put any user code."
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode)
 
+  (evil-leader/set-key "ga" 'vc-annotate)
   )
 
 
