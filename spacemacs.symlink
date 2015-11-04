@@ -254,8 +254,14 @@ layers configuration. You are free to put any user code."
   (setq interprogram-cut-function 'paste-to-osx)
   (setq interprogram-paste-function 'copy-from-osx))
 
-  ;; Make underscore count as a word character in Ruby mode.
-  (modify-syntax-entry ?_ "w" ruby-mode-syntax-table)
+  ;; Make underscore count as a word character
+  (defadvice evil-inner-word (around underscore-as-word activate)
+   (let ((table (copy-syntax-table (syntax-table))))
+     (modify-syntax-entry ?_ "w" table)
+     (with-syntax-table table
+       ad-do-it)))
+
+  ;; display time in powerline
   ;; Configure git gutter (diff-hl) the way I like it
   (setq diff-hl-side 'left)
   (global-diff-hl-mode)
