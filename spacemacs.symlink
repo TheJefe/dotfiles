@@ -254,6 +254,20 @@ layers configuration. You are free to put any user code."
   (setq interprogram-cut-function 'paste-to-osx)
   (setq interprogram-paste-function 'copy-from-osx))
 
+  ;; code folding for ruby
+  (add-hook 'enh-ruby-mode-hook
+            (lambda () (hs-minor-mode)))
+  (eval-after-load "hideshow"
+    '(add-to-list 'hs-special-modes-alist
+                  `(enh-ruby-mode
+                    ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
+                    ,(rx (or "}" "]" "end"))                       ; Block end
+                    ,(rx (or "#" "=begin"))                        ; Comment start
+                    enh-ruby-forward-sexp nil)))
+
+  (global-set-key (kbd "C-c h") 'hs-hide-block)
+  (global-set-key (kbd "C-c s") 'hs-show-block)
+
   ;; Make underscore count as a word character
   (defadvice evil-inner-word (around underscore-as-word activate)
    (let ((table (copy-syntax-table (syntax-table))))
