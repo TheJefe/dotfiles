@@ -268,6 +268,9 @@ layers configuration. You are free to put any user code."
   (global-set-key (kbd "C-c h") 'hs-hide-block)
   (global-set-key (kbd "C-c s") 'hs-show-block)
 
+  ;; ignore tag file warning
+  (setq large-file-warning-threshold nil)
+
   ;; Make underscore count as a word character
   (defadvice evil-inner-word (around underscore-as-word activate)
    (let ((table (copy-syntax-table (syntax-table))))
