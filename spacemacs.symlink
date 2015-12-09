@@ -36,6 +36,7 @@ values."
      osx
      emacs-lisp
      git
+     version-control
      github
      markdown
      ;; org
