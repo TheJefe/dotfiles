@@ -224,6 +224,8 @@ layers configuration. You are free to put any user code."
 
   ;; show line numbers
   (global-linum-mode)
+  ;; line numbers with a space before the line text
+  (setq linum-format "%d ")
 
   ;; Temporarily speed up neotree https://github.com/syl20bnr/spacemacs/issues/2943
   (setq neo-vc-integration nil)
