@@ -1,9 +1,10 @@
 [user]
 	name = Jeff Koenig
-	email = jkoenig@thinkthroughmath.com
+	email = "(none)"
 [core]
 	editor = vim
-	pager = less -r
+	autocrlf = input
+	excludesfile = ~/.gitignore
 [push]
 	default = simple
 [credential]
@@ -15,3 +16,17 @@
  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
 [web]
 	browser = open
+[github]
+	user = thejefe
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
