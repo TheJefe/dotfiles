@@ -288,6 +288,10 @@ layers configuration. You are free to put any user code."
   (diff-hl-flydiff-mode)
 
   (evil-leader/set-key "ga" 'vc-annotate)
+
+  ;; Open markdown files in chrome
+  (setq markdown-open-command "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+  (evil-leader/set-key "mo" 'markdown-open)
   )
 
 
