@@ -157,8 +157,15 @@ gl --since=${yesterworkday}
 # show list of directories
 alias d='ls -l | grep ^d'
 
-# this is a script for listing pull requests
-alias gi="/git/gi/gi; open issues.html; sleep 2; rm issues.html"
+function gi() {
+  /git/gi/gi "$@";
+  if [ -s issues.html ]
+  then
+    open issues.html;
+    sleep 2;
+    rm issues.html;
+  fi
+}
 
 # startup my tmux sessions
 alias startup="mux apangea; mux reporting; mux lp; mux vrome; mux gi-web"
