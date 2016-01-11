@@ -40,9 +40,7 @@ values."
      github
      markdown
      ;; org
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+     shell
      spell-checking
      syntax-checking
      ruby
@@ -234,7 +232,7 @@ layers configuration. You are free to put any user code."
 
   ; override option sent through ansi-term
   (defun jnm/term-ansi-make-term (fn &rest args)
-    (let ((new-args (if (string= (second args) "/bin/bash")
+    (let ((new-args (if (string= (second args) "/usr/local/bin/bash")
                         (append args (list nil "--login"))
                       args)))
       (apply fn new-args)))
