@@ -167,6 +167,12 @@ function gi() {
   fi
 }
 
+# removes all merged branches except rc master and the current branch
+function branch_cleanup() {
+  git branch --merged | grep -v "\*\|rc\|master" | xargs -n 1 git branch -d
+  git remote prune origin
+}
+
 # startup my tmux sessions
 alias startup="mux apangea; mux reporting; mux lp; mux vrome; mux gi-web"
 
