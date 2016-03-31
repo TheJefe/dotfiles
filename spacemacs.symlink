@@ -39,7 +39,6 @@ values."
      version-control
      github
      markdown
-     ;; org
      shell
      spell-checking
      syntax-checking
