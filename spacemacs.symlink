@@ -230,6 +230,15 @@ layers configuration. You are free to put any user code."
 
   (setq aggressive-indent 1)
 
+  ;; close term buffer when exiting
+  (defadvice term-sentinel (around my-advice-term-sentinel (proc msg))
+    (if (memq (process-status proc) '(signal exit))
+        (let ((buffer (process-buffer proc)))
+          ad-do-it
+          (kill-buffer buffer))
+      ad-do-it))
+  (ad-activate 'term-sentinel)
+
   ; override option sent through ansi-term
   (defun jnm/term-ansi-make-term (fn &rest args)
     (let ((new-args (if (string= (second args) "/usr/local/bin/bash")
@@ -238,6 +247,21 @@ layers configuration. You are free to put any user code."
       (apply fn new-args)))
 
   (advice-add 'term-ansi-make-term :around #'jnm/term-ansi-make-term)
+
+
+  ;; make term pastable
+  (defun my-term-paste (&amp;optional string)
+                        (interactive)
+                        (process-send-string
+                         (get-buffer-process (current-buffer))
+                         (if string string (current-kill 0)))))
+
+  ;; make term links clickable
+  (defun my-term-hook ()
+    (goto-address-mode)
+    (define-key term-raw-map "\C-y" 'my-term-paste))
+
+  (add-hook 'term-mode-hook 'my-term-hook)
 
   (setq projectile-globally-ignored-directories
         '("solr" "log")
