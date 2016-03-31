@@ -318,6 +318,8 @@ layers configuration. You are free to put any user code."
   (evil-leader/set-key "mtt" 'ruby-test-run-at-point)
   (evil-leader/set-key "mtb" 'ruby-test-run)
 
+  (setq-default git-magit-status-fullscreen t)
+
   ;; Open markdown files in chrome
   (setq markdown-open-command "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
   (evil-leader/set-key "mo" 'markdown-open)
