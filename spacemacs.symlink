@@ -193,7 +193,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("pt" "ag" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -239,6 +239,9 @@ layers configuration. You are free to put any user code."
 
   (advice-add 'term-ansi-make-term :around #'jnm/term-ansi-make-term)
 
+  (setq projectile-globally-ignored-directories
+        '("solr" "log")
+        )
   ;; Turn off line wrapping
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
 
@@ -294,8 +297,13 @@ layers configuration. You are free to put any user code."
   ;; Open markdown files in chrome
   (setq markdown-open-command "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
   (evil-leader/set-key "mo" 'markdown-open)
-  )
 
+  ;; (custom-set-variables
+  ;;  '(helm-ag-base-command "pt --nocolor --nogroup --ignore-case")
+  ;;  '(helm-ag-insert-at-point 'symbol))
+  (custom-set-variables
+   '(helm-ag-base-command "pt -i --nocolor --nogroup"))
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
