@@ -325,12 +325,6 @@ layers configuration. You are free to put any user code."
   (setq markdown-open-command "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
   (evil-leader/set-key "mo" 'markdown-open)
 
-  ;; (custom-set-variables
-  ;;  '(helm-ag-base-command "pt --nocolor --nogroup --ignore-case")
-  ;;  '(helm-ag-insert-at-point 'symbol))
-  (custom-set-variables
-   '(helm-ag-base-command "pt -i --nocolor --nogroup"))
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
