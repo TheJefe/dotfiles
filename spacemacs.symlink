@@ -330,7 +330,15 @@ layers configuration. You are free to put any user code."
   ;;  '(helm-ag-insert-at-point 'symbol))
   (custom-set-variables
    '(helm-ag-base-command "pt -i --nocolor --nogroup"))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(flycheck-rubocoprc "config/.rubocop.yml")
+ '(helm-ag-base-command "pt -i --nocolor --nogroup"))
