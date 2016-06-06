@@ -1,0 +1,7 @@
+{
+    "application:new-message": ["mod+n"],
+    "core:delete-item": "d",
+    "core:pop-sheet": ["h","backspace"],
+    "core:focus-item": "l",
+    "core:change-category": "m"
+}
