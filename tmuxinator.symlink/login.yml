@@ -1,0 +1,11 @@
+# ~/.tmuxinator/login.yml
+
+name: login
+root: ~/git/login
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+#pre_window: rvm use .
+
+windows:
+  - editor:
+  - server: git pull --no-edit; bundle install; rake db:migrate; foreman start -f Procfile.development
