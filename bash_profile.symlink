@@ -172,7 +172,7 @@ function branch_cleanup() {
 }
 
 # startup my tmux sessions
-alias startup="mux apangea; mux reporting; mux lp; mux vrome; mux gi-web"
+alias startup="mux apangea; mux reporting; mux lp; mux vrome; mux gi-web; mux login"
 
 alias cc="cd;clear"
 
