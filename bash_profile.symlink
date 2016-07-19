@@ -25,6 +25,7 @@ source ~/git/liquidprompt/liquidprompt
 
 ## tmuxinator autocompletion
 source ~/.tmuxinator.bash
+alias mux='tmuxinator'
 
 RED="\[\033[0;31m\]"
 YELLOW="\[\033[0;33m\]"
