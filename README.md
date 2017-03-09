@@ -7,8 +7,8 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
 
 ## Prerequisites
 
-(LiquidPrompt)[https://github.com/nojhan/liquidprompt] installed to `/git/liquidprompt`
-(Powerline)[https://powerline.readthedocs.org/en/latest/installation.html] installed
+- [LiquidPrompt](https://github.com/nojhan/liquidprompt) installed to `/git/liquidprompt`
+- [Powerline](https://powerline.readthedocs.org/en/latest/installation.html) installed
 
 ## To install
 
