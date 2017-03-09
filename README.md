@@ -20,3 +20,11 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
     ./script/bootstrap
     vim
     :BundleInstall
+
+## Tmux
+
+### Install patched font
+
+- download from https://github.com/powerline/fonts/blob/master/Inconsolata/Inconsolata%20for%20Powerline.otf
+- Have iTerm use this font for both ASCII and NON-ASCII characters
+- Set iterm start command as `tmux attach-session -t hacking || tmux new-session -s hacking -n neo`
