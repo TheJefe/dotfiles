@@ -300,6 +300,13 @@ layers configuration. You are free to put any user code."
 
   (add-hook 'term-mode-hook 'my-term-hook)
 
+  ;; don't prompt for tag tables
+  (setq tags-add-tables nil)
+
+  (setq projectile-globally-ignored-files
+        '("TAGS")
+        )
+
   (setq projectile-globally-ignored-directories
         '("solr" "log")
         )
