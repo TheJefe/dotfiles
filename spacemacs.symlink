@@ -368,6 +368,7 @@ layers configuration. You are free to put any user code."
   (setq markdown-open-command "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
   (evil-leader/set-key "mo" 'markdown-open)
 
+  ;; End custom config
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -378,4 +379,12 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(flycheck-rubocoprc "config/.rubocop.yml")
- '(helm-ag-base-command "pt -i --nocolor --nogroup"))
+ '(helm-ag-base-command "pt -i --nocolor --nogroup")
+ '(paradox-github-token t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
