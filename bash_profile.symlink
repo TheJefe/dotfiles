@@ -172,7 +172,7 @@ function ip() {
 }
 
 # startup my tmux sessions
-alias startup="mux apangea; mux reporting; mux lp; mux vrome; mux gi-web"
+alias startup="mux apangea; mux reporting; mux lp; mux gi-web;"
 
 alias cc="cd;clear"
 
