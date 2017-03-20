@@ -27,6 +27,7 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
 
 - download from https://github.com/powerline/fonts/blob/master/Inconsolata/Inconsolata%20for%20Powerline.otf
 - Have iTerm use this font for both ASCII and NON-ASCII characters
+- Set the login command to `/usr/local/bin/bash -l`, this tells it to use the brew version of bash
 - Set iterm start command as `tmux attach-session -t hacking || tmux new-session -s hacking -n neo`
 
 ## Spacemacs
