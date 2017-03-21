@@ -21,6 +21,10 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
     vim
     :BundleInstall
 
+## MacVim
+
+`brew install macvim --with-override-system-vim`
+
 ## Tmux
 
 ### Install patched font
