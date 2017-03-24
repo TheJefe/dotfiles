@@ -207,6 +207,9 @@ function frameworkpython {
 
 alias clear_py_cache="find . -name '*.pyc' -delete"
 
+# Tii specific environment variable
+export PINTSIDE_POS_THREADS=1
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export NVM_DIR="$HOME/.nvm"
