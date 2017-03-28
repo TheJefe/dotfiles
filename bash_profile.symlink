@@ -205,7 +205,8 @@ function frameworkpython {
     fi
 }
 
-alias clear_py_cache="find . -name '*.pyc' -delete"
+alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
+
 
 # Tii specific environment variable
 export PINTSIDE_POS_THREADS=1
