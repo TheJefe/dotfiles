@@ -197,6 +197,20 @@ export NLTK_DATA=$HOME/nltk_data
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+  . /usr/local/bin/virtualenvwrapper.sh
+fi
+
+if [ -f /usr/local/opt/autoenv/activate.sh ]; then
+  grep autoenv ~/.rvm/hooks/after_cd > /dev/null
+  if  [ $? != 0 ]; then
+    echo "you need add autoenv_init to '~/.rvm/hooks/after_cd'"
+    echo "more info can be found here: https://github.com/kennethreitz/autoenv/issues/45#issuecomment-18232652"
+  fi
+
+  source $(brew --prefix autoenv)/activate.sh
+fi
+
 function frameworkpython {
     if [[ ! -z "$VIRTUAL_ENV" ]]; then
         PYTHONHOME=$VIRTUAL_ENV /usr/bin/python "$@"
@@ -206,7 +220,6 @@ function frameworkpython {
 }
 
 alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
-
 
 # Tii specific environment variable
 export PINTSIDE_POS_THREADS=1
