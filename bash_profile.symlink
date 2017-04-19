@@ -225,6 +225,7 @@ alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -
 
 # Tii specific environment variable
 export PINTSIDE_POS_THREADS=1
+export CHESHIRE_CONTENT=${PROJECT_HOME}/hamlet
 
 # Docker stuff
 # Delete all stopped containers.
