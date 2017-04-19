@@ -227,6 +227,13 @@ alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -
 export PINTSIDE_POS_THREADS=1
 export CHESHIRE_CONTENT=${PROJECT_HOME}/hamlet
 
+# This runs a shell script that returns temporary keys that need to be added to the current environment
+# This is specificly tied to Tii things
+function assume() {
+    eval $(assume_role $@ 3600|grep ^export)
+}
+# Used to share temporary keys across sessions
+alias gk='source ~/.custom_keys'
 # Docker stuff
 # Delete all stopped containers.
 alias dockerclean='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
