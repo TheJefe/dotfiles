@@ -27,6 +27,8 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
 
 ## Tmux
 
+`brew install tmux`
+
 ### Install patched font
 
 - download from https://github.com/powerline/fonts/blob/master/Inconsolata/Inconsolata%20for%20Powerline.otf
@@ -51,4 +53,11 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ```bash
 brew tap homebrew/versions
 brew install bash-completion2
+```
+
+## Other packages
+
+```bash
+brew install ispell  # used for spell checking in spacemacs
+brew install thefuck # awesome tool for fixing screwed up commands
 ```
