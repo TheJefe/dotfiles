@@ -28,6 +28,10 @@ bind -n C-k send-keys -R \; clear-history
 # bind % split-window -h -c "#{pane_current_path}"
 # bind c new-window -c "#{pane_current_path}"
 
+# Better options for splitting windows
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+
 # resize windows
 bind -r H resize-pane -L 5
 bind -r J resize-pane -D 5
