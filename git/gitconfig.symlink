@@ -1,6 +1,6 @@
 [user]
 	name = Jeff Koenig
-	email = "(none)"
+	useConfigOnly = true
 [core]
 	editor = vim
 	autocrlf = input
