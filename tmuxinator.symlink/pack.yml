@@ -1,0 +1,10 @@
+# ~/.tmuxinator/default.yml
+
+name: <%= ENV["PWD"].split('/').last.split('.').first %>
+root: <%= ENV["PWD"] %>
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+#pre_window: rvm use .
+
+windows:
+  - neo: workon <%= ENV["PWD"].split('/').last.split('.').first %>
