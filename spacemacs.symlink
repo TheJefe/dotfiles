@@ -442,6 +442,10 @@ layers configuration. You are free to put any user code."
   (setq markdown-open-command "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
   (evil-leader/set-key "mo" 'markdown-open)
 
+  ;; Disable annoying anaconda messages
+  (remove-hook 'anaconda-mode-response-read-fail-hook
+               'anaconda-mode-show-unreadable-response)
+
   ;; End custom config
   )
 
