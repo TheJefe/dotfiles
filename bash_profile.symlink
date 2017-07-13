@@ -125,6 +125,7 @@ alias gr='git reset --hard'
 alias grr="git reset --hard origin/rc"
 alias gpn="git pull --no-ff origin"
 alias gg="git grep --break --heading --line-number"
+alias gsu="git submodule update --init --recursive"
 
 # command correction tool
 # https://github.com/nvbn/thefuck
