@@ -212,6 +212,7 @@ if [ -f /usr/local/opt/autoenv/activate.sh ]; then
 
   source $(brew --prefix autoenv)/activate.sh
 fi
+export AUTOENV_ENV_FILENAME=.autoenv
 
 function frameworkpython {
     if [[ ! -z "$VIRTUAL_ENV" ]]; then
