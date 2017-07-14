@@ -111,6 +111,6 @@
             {:selector "atom-text-editor.vim-mode-plus:not(.normal-mode)" :keymap [["f d" "vim-mode-plus:activate-normal-mode"]]}
             ;; {:selector "atom-text-editor.vim-mode:not(.normal-mode)" :keymap [["f d" "vim-mode:activate-normal-mode"]]}
             {:selector "atom-text-editor.vim-mode-plus:not(.insert-mode)" :keymap [["s s" "core:save"]]}
-            {:selector "atom-text-editor.vim-mode-plus:not(.normal-mode)" :keymap [["j j" "vim-mode-plus:activate-normal-mode"]]}
+            {:selector "atom-text-editor.vim-mode-plus.insert-mode" :keymap [["j j" "vim-mode-plus:activate-normal-mode"]]}
   ]
 }
