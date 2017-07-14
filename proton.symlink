@@ -112,5 +112,9 @@
             ;; {:selector "atom-text-editor.vim-mode:not(.normal-mode)" :keymap [["f d" "vim-mode:activate-normal-mode"]]}
             {:selector "atom-text-editor.vim-mode-plus:not(.insert-mode)" :keymap [["s s" "core:save"]]}
             {:selector "atom-text-editor.vim-mode-plus.insert-mode" :keymap [["j j" "vim-mode-plus:activate-normal-mode"]]}
+            ;; This work, any command not exist is OK to make keystroke useless.
+            ;; see: https://github.com/t9md/atom-vim-mode-plus/issues/214
+            {:selector 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
+                :keymap [['G': 'DONT_MOVE_TO_LAST_LINE']]}
   ]
 }
