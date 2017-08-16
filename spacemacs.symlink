@@ -446,6 +446,11 @@ layers configuration. You are free to put any user code."
   (remove-hook 'anaconda-mode-response-read-fail-hook
                'anaconda-mode-show-unreadable-response)
 
+  ;; Enable python execution in org-mode
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t)))
+
   ;; End custom config
   )
 
