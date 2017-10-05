@@ -263,7 +263,7 @@ dclean() {
 alias dockerclean=dclean
 
 # Bash into running container
-dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+dbash() { docker exec -it $(docker ps -aqf "name=^/$1\$") bash; }
 complete -F _docker_exec dbash
 
 # Dockerfile build, e.g., $dbu tcnksm/test
