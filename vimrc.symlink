@@ -1,0 +1,347 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Plugins ======================================
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bogado/file-line'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim' "required for gist vim
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-rails'
+Plugin 'benmills/vimux'
+Plugin 'tpope/vim-markdown'
+Plugin 'vim-scripts/SQLUtilities'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'slim-template/vim-slim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'hughbien/md-vim'
+Plugin 'ervandew/supertab'
+Plugin 'kablamo/vim-git-log'
+Plugin 'tpope/vim-surround'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'mtth/scratch.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'godlygeek/tabular'
+Plugin 'thejefe/vim-prreview'
+Plugin 'thejefe/github-issues.vim'
+Plugin 'bling/vim-airline'
+Plugin 'junegunn/vim-github-dashboard'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'hdima/python-syntax'
+Plugin 'tpope/vim-rvm'
+" END Plugins ==================================
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" END Vundle
+
+" Required for neovim
+let g:python_host_prog='/usr/local/bin/python'
+
+colorscheme jellybeans
+set wildmenu
+set guifont=Inconsolata\ For\ Powerline
+set foldmethod=syntax
+setlocal foldlevelstart=20
+setlocal foldmarker=/*,*/
+set guioptions=aAce
+set clipboard=unnamed
+set number
+set ignorecase
+set noswapfile
+set hlsearch
+set nowrap
+set hidden
+set omnifunc=syntaxcomplete#Complete
+
+" tab should create 2 spaces
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+" for ruby syntax, use 2 spaces
+autocmd BufRead,BufNewFile *.rb set sw=2 sts=2 et
+
+" Map leader
+:let mapleader = ","
+
+" insert a single character
+:nmap <C-i> i_<Esc>r
+
+" Give a shortcut to CtrlP
+map <C-p> :CtrlP<CR>
+map <leader>r :CtrlP<CR>
+set wildignore+=*.png,*.jpg,*.pdf,*.swf
+
+" save ctrlP cache
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_custom_ignore = '\.git$\|\.o$\|\.app$\|\.beam$\|\.dSYM\|\.ipa$\|\.csv\|tags\|public\/images$\|public\/uploads$\|log\|tmp$\|source_maps\|app\/assets\/images\|test\/reports\|node_modules\|bower_components'
+
+let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_extensions = ['buffertag', 'tag', 'line', 'dir']
+
+" make the shell source .bashrc and .bash_profle
+set shell=bash\ --login
+
+" Map an easier excape
+inoremap jj <ESC>
+
+" mapping the write command
+nnoremap ss :w<CR>
+
+" Give a shortcut key to NERD Tree
+map <leader>n :NERDTreeToggle<CR>
+
+" Give a shortcut key to TagList
+map <leader>m :TlistToggle<CR>
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Show_One_File = 1
+
+" Shortcut for switching window
+map <leader>w <C-W>w
+map <D-ENTER> :set invfullscreen<CR>
+
+" vertical split
+nnoremap <leader>v <C-w>v<C-w>l:enew<CR>
+" new tab
+nnoremap gT :tabe<CR>
+
+" source current file
+map <leader>s :so %<CR>
+
+" clear the last highlighted search
+nnoremap <leader>h :noh<return><esc>
+
+" find current word in quickfix
+nnoremap K :Ggrep "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Increase or Decrease the current transparency value
+nnoremap <C-q> :set transparency+=1<CR>
+nnoremap <C-a> :set transparency-=1<CR>
+
+" regenerate ctags
+set tags=./tags,tags,coffee.tags
+map <Leader>c :!rm tags; ctags --extra=+f --exclude=coverage --exclude=.git --exclude=vendor --exclude=log --exclude=node_modules --exclude=public -R *;rm coffee.tags; coffeetags -R -f coffee.tags<CR><CR>
+
+" pretty print json
+map <leader>j <Esc>:%!json_xs -f json -t json-pretty<CR>
+
+" vim-airline always on
+set laststatus=2
+let g:airline_powerline_fonts = 1
+
+" Powerline configs
+" Disabling these and using airline instead so that I can use neovim as well.
+" See also: https://github.com/powerline/powerline/issues/1287
+"python import sys; sys.path.append("/lib/python/2.7/site-packages")
+"source ~/.vim/plugin/powerline.vim
+
+if has('nvim')
+  " Neovim terminal switch to normal mode mapping
+  tnoremap <Esc> <c-\><c-n>
+endif
+
+"Realtime gitgutter is soooooooo slow
+let g:gitgutter_realtime=0
+
+"  syntax automatically selected based on extension
+syntax on
+filetype on
+filetype plugin on
+au BufNewFile,BufRead *.note set filetype=note
+
+" Turn on spell check for certain file types
+set complete+=kspell
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
+autocmd BufRead,BufNewFile *.txt setlocal spell spelllang=en_us
+autocmd FileType gitcommit setlocal spell spelllang=en_us
+
+" Custom nerd commenter mapping
+let g:NERDCustomDelimiters = { 'note': { 'left': '~~'} }
+
+" Show trailing spaces as a dot
+set list listchars=trail:.,tab:>>
+
+" ctags configurations
+let g:ctags_statusline=1
+
+" Gist configs
+let g:gist_show_privates = 1
+
+" map a command for doing a git pull
+:ca gp !git pull
+
+" Open markdown files with Chrome.
+nnoremap <F5> :silent !open -a "/Applications/Google Chrome.app" "%:p"<CR> :redraw!<CR>
+
+" Trying a better git grep
+command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+
+" used for pr-review plugin
+"let g:pr_review_github_repos = ['thinkthroughmath/mathjs-rest','neovim/neovim','jnicklas/capybara']
+"let g:pr_review_query = 'state:open type:pr'
+let g:pr_review_github_repos = ['thinkthroughmath/apangea','thinkthroughmath/reporting','thinkthroughmath/lesson-player','thinkthroughmath/live_teaching','thinkthroughmath/avatar-builder','thinkthroughmath/storyboard','thinkthroughmath/scalr']
+let g:pr_review_query = "state:open type:pr label:\"Needs QA\""
+let g:pr_review_options = {'sort': 'updated', 'order': 'asc'}
+let g:pr_review_merge_command = 'git stash; git checkout rc; git reset --hard origin/rc; git pull; git pull --no-ff --no-edit origin'
+
+let g:gh_issues_query = "state:open user:thinkthroughmath type:pr label:\"Needs QA\" sort:created-asc"
+
+" Used for github-issues
+let g:github_access_token = '~/.github-issues.vim'
+
+let g:github_dashboard = { 'username': 'you', 'password': $GITHUB_TOKEN }
+
+" alt-] open in tag in vertical split
+:map <leader>g :belowright vsplit <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" enable the numpad
+if &term=="xterm" || &term=="xterm-color" || &term=="xterm-256color"
+  fixdel
+  set t_Co=256
+  set t_Sb=^[4%dm
+  set t_Sf=^[3%dm
+  :imap <Esc>Oq 1
+  :imap <Esc>Or 2
+  :imap <Esc>Os 3
+  :imap <Esc>Ot 4
+  :imap <Esc>Ou 5
+  :imap <Esc>Ov 6
+  :imap <Esc>Ow 7
+  :imap <Esc>Ox 8
+  :imap <Esc>Oy 9
+  :imap <Esc>Op 0
+  :imap <Esc>On .
+  :imap <Esc>OQ /
+  :imap <Esc>OR *
+  :imap <Esc>Ol +
+  :imap <Esc>OS -
+endif
+
+""""""""""" Functions
+nnoremap <leader><Space> :call TrimSpaces()<CR>
+function TrimSpaces()
+  %s/\s*$//
+  %s/\t/  /g
+  ''
+:endfunction
+
+" Used to switch between QA and Dev PRs
+function TogglePRList()
+  let dev_pr_review_query = "state:open type:pr label:\"Needs Code Review\""
+  let qa_pr_review_query = "state:open type:pr label:\"Needs QA\""
+
+  if g:pr_review_query == dev_pr_review_query
+    let g:pr_review_query = qa_pr_review_query
+  else
+    let g:pr_review_query = dev_pr_review_query
+  endif
+:endfunction
+
+function IsMinitest(filename)
+  let split_filename = split(a:filename, ":")[0]
+  return match(split_filename, '_test.rb$') != -1
+:endfunction
+
+function IsRspec(filename)
+  let split_filename = split(a:filename, ":")[0]
+  return match(split_filename, '_spec.rb$') != -1
+:endfunction
+
+function IsJasmine(filename)
+  let split_filename = split(a:filename, ":")[0]
+  return match(split_filename, '_spec.js$') != -1
+:endfunction
+
+function IsExUnit(filename)
+  let split_filename = split(a:filename, ":")[0]
+  return match(split_filename, '_test.exs$') != -1
+:endfunction
+
+function RunTests(filename)
+    " Write the file and run tests for the given filename
+    :w
+
+    if IsMinitest(a:filename)
+      let command_to_run = "m " . a:filename
+    elseif IsRspec(a:filename)
+      let command_to_run = "rspec " . a:filename
+    elseif IsJasmine(a:filename)
+      let command_to_run = "jasmine-node " . a:filename
+    elseif IsExUnit(a:filename)
+      let command_to_run = "elixir " . a:filename
+    end
+
+    call VimuxRunCommand(command_to_run)
+:endfunction
+
+function SetTestFile()
+    " Set the spec file that tests will be run for.
+    let t:grb_test_file=@%
+:endfunction
+
+function RunTestFile(...)
+    if a:0
+        let command_suffix = a:1
+    else
+        let command_suffix = ""
+    endif
+
+    " Run the tests for the previously-marked file.
+    let in_spec_file = IsMinitest(expand("%")) || IsRspec(expand("%")) || IsJasmine(expand("%")) || IsExUnit(expand("%"))
+    if in_spec_file
+        call SetTestFile()
+    elseif !exists("t:grb_test_file")
+        return
+    end
+    call RunTests(t:grb_test_file . command_suffix)
+:endfunction
+
+function RunNearestTest()
+    let spec_line_number = line('.')
+    call RunTestFile(":" . spec_line_number)
+:endfunction
+
+map <leader>t :call RunTestFile()<cr><cr>
+map <leader>T :call RunNearestTest()<cr><cr>
+map <leader>a :call RunTests('spec')<cr><cr>
+
+" Create a codefolded note block with the current date
+map <leader>f :call NoteBlock()<CR>
+function NoteBlock()
+  let @a= "/* ** ".strftime("%m/%d/%y").":"
+  let @b= "*/"
+  put b
+  .-1 put a
+:endfunction
+
+" not really using the pull request list here anymore
+"autocmd VimEnter * Rvm use default
+
+" lists issues created by Me
+function MyIssues()
+  let temp_query = g:pr_review_query
+  let temp_options = g:pr_review_options
+  let g:pr_review_query = "state:open author:TheJefe"
+  let g:pr_review_options = {'sort': 'created', 'order': 'desc'}
+  PR
+  let g:pr_review_query = temp_query
+  let g:pr_review_options = temp_options
+:endfunction
+command! MyIssues call MyIssues()
+
+function Status()
+  setlocal splitright
+  GHA thejefe
+  vsplit ~/notes/status.note
+:endfunction
+command! Status call Status()

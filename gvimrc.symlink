@@ -1,0 +1,2 @@
+setlocal transparency=15
+

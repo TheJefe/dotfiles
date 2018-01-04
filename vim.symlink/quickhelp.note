@@ -1,0 +1,104 @@
+d ~ delete
+D ~ delete from cursor to the end of line
+a ~ append
+A ~ append at end of line
+r ~ replace
+p ~ paste
+y ~ yank / copy
+x ~ delete
+dw ~ delete word
+0 ~ move curser to the begining of the line
+$ ~ move curser to the end of the line
+w ~ move curser to the right one word
+b ~ move curser to the left one word
+v ~ visual mode for selecting
+Ctrl + v  ~ column select
+viw ~ select word
+G ~ end of file
+1G ~ begining of file
+gg ~ goto begining of file
+Ctrl+p ~ while inserting this auto completes
+Ctrl+d ~ page down
+Ctrl+u ~ page up
+<leader>+w ~ switch active window
+:sh ~ open shell
+z. — to put the line with the cursor at the center,
+zt — to put the line with the cursor at the top
+zb — to put the line with the cursor at the bottom of the screen.
+
+** multi line edit
+Ctrl+V, select lines, I
+
+** change case
+g~
+gu
+gU
+
+gx - open url in a browser
+
+** Change word
+ciw - change current word
+cc - change entire current line
+
+** Marks
+:marks ~ view all marks
+:delmarks! ~ deletes all marks
+ma ~ set mark a to current line
+'a ~ goto mark a... or sub "a" with another mark identifier
+
+:e ~ reload from disk
+:y *  ~ copy to system clipboard
+:set autoread ~ poll file for changes
+:PrettyXML ~ formats an xml file
+
+The following command will sort all lines and remove duplicates (keeping unique lines):
+:sort u
+
+Pretty JSON
+set syn=js
+highlight all text and hit =
+:%!python -m json.tool
+
+** Remove all blank lines
+<leader> + Space
+
+** diff
+get your data in split windows, then in each run
+:diffthis
+
+** Fullscreen
+  To use macvim's fullscreen mode by default, run this at commandline
+  defaults write org.vim.MacVim MMNativeFullScreen 0
+
+set fu
+set nofu
+
+** CODE
+<leader>cc  ~ comments out a line
+
+** ctags
+install exuberant ctags...
+$ brew install ctags-exuberant
+To create tags, run...
+$ rm tags; ctags --extra=+f --exclude=.git --exclude=log -R *
+
+Ctrl + ]  ~ jump to declaration
+Ctrl + t  ~ backup over the stack
+C-] - go to definition
+C-W C-] - Open the definition in a horizontal split
+
+** Open new buffers
+:new will create a split window with an unnamed buffer.
+:enew will open one in the current window.
+:vnew will open one in a vertically split window.
+:tabnew will open one in a new tab.
+
+** CtrlP
+Note: you can quickly purge the cache by pressing <F5> while inside CtrlP.
+
+
+** Tmux
+
+Hide then return a pane
+:break-pane -d
+:join-pane -s :2
