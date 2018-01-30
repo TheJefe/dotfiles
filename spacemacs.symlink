@@ -451,9 +451,20 @@ layers configuration. You are free to put any user code."
    'org-babel-load-languages
    '((python . t)))
 
+  (require 'helm-bookmark)
+
+  ;; allow C-r to reverse search in the terminal
+  (defun bb/setup-term-mode ()
+    (evil-local-set-key 'insert (kbd "C-r") 'bb/send-C-r))
+
+  (defun bb/send-C-r ()
+    (interactive)
+    (term-send-raw-string "\C-r"))
+
+  (add-hook 'term-mode-hook 'bb/setup-term-mode)
+
   ;; End custom config
   )
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
