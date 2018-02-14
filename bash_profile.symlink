@@ -252,11 +252,23 @@ fi
 # Delete all stopped containers.
 alias dpa='docker ps -a'
 alias di='docker images'
+complete -F _docker_images di
 alias drmi='docker rmi'
 complete -F _docker_rmi drmi
 alias dr='docker run'
 alias dri='docker run -it'
+complete -F _docker_run dri
+complete -F _docker_run dr
 alias db='docker build'
+complete -F _docker_build db
+alias dl='docker logs'
+complete -F _docker_logs dl
+alias dlf='docker logs -f'
+complete -F _docker_logs dlf
+
+# Docker-compose
+alias dcu='docker-compose up -d'
+alias dcd='docker-compose down'
 
 dclean() {
   printf "\n>>> Deleting stopped containers\n\n"
