@@ -39,7 +39,7 @@ values."
      (python :variables
              python-test-runner '(pytest nose)
              pytest-cmd-flags ""
-             pytest-global-name "if [ -f 'test_style.sh' ]; then ./test_style.sh; fi; py.test"
+             pytest-global-name "t"
              )
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
