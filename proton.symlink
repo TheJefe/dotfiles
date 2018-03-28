@@ -116,5 +116,9 @@
             ;; see: https://github.com/t9md/atom-vim-mode-plus/issues/214
             {:selector 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
                 :keymap [['G': 'DONT_MOVE_TO_LAST_LINE']]}
+          ;;  {:selector '.fuzzy-finder atom-text-editor[mini]' :keymap
+           ;;   [['ctrl-v': 'pane:split-right']]
+              ;;'ctrl-s': 'pane:split-down'
+            ;;}
   ]
 }
