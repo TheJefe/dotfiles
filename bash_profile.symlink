@@ -96,7 +96,7 @@ fi
 
 # this is just a nicer way of greping for a process
 function psgrep(){
-  ps aux | grep $@
+  ps aux | grep -i $@
 }
 
 # Special kill will find processes matching a regex and 'kill -9' them
