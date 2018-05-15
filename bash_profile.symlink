@@ -264,8 +264,7 @@ dclean() {
   docker rm $(docker ps -a -q)
 
   printf "\n>>> Deleting untagged images\n\n"
-  docker rmi $(docker images | grep "^<none>" | awk "{print \$3}")
-
+  docker system prune -f
 }
 alias dockerclean=dclean
 
