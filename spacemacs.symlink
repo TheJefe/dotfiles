@@ -439,6 +439,7 @@ layers configuration. You are free to put any user code."
   (spaceline-define-segment datetime
     (shell-command-to-string "echo -n \"⏰ $(date '+%a %d %b %I:%M%p')\""))
   (spaceline-spacemacs-theme 'datetime)
+  (setq spaceline-minor-modes-p nil)
 
   ;; Configure git gutter (diff-hl) the way I like it
   (setq diff-hl-side 'left)
