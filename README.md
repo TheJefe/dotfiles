@@ -9,6 +9,10 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
 
 - [LiquidPrompt](https://github.com/nojhan/liquidprompt) installed to `/git/liquidprompt`
 - [Powerline](https://powerline.readthedocs.org/en/latest/installation.html) installed
+  - `brew install git`
+  - `brew install python`
+  - `brew install python@2`
+  - `pip install powerline-status`
 
 ## To install
 
@@ -27,6 +31,7 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
 
 ## Tmux
 
+`brew install reattach-to-user-namespace`
 `brew install tmux`
 
 ### Install patched font
