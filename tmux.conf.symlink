@@ -9,8 +9,10 @@ bind C-a send-prefix
 # act like vim
 set -g status-keys vi
 setw -g mode-keys vi
-bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi y send-keys -X copy-selection
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "pbcopy"
 bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
@@ -53,8 +55,7 @@ set -g status-fg white
 set -g status-interval 5
 set -g status-left-length 90
 set -g status-right-length 60
-set -g status-left "#[fg=Green]#S#[fg=white]::#[fg=blue] \
-#(hostname -s)#[fg=white]::##[fg=yellow]#(curl ipecho.net/plain;echo)"
+set -g status-left "#[fg=Green]#S#[fg=white]::#[fg=blue] #(hostname -s)#[fg=white]::##[fg=yellow]#(curl ipecho.net/plain;echo)"
 set -g status-justify left
 set -g status-right '#[fg=Cyan]#S #[fg=white]⏰  %a %d %b %I:%M%p'
 

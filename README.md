@@ -31,7 +31,6 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
 
 ## Tmux
 
-`brew install reattach-to-user-namespace`
 `brew install tmux`
 
 ### Install patched font
