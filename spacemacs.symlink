@@ -478,6 +478,7 @@ layers configuration. You are free to put any user code."
     (term-send-raw-string "\C-r"))
 
   (add-hook 'term-mode-hook 'bb/setup-term-mode)
+  (setq groovy-indent-offset 2)
 
   ;; End custom config
   )
