@@ -370,14 +370,6 @@ layers configuration. You are free to put any user code."
 
   (advice-add 'term-ansi-make-term :around #'jnm/term-ansi-make-term)
 
-
-  ;; make term pastable
-  (defun my-term-paste (&amp;optional string)
-                        (interactive)
-                        (process-send-string
-                         (get-buffer-process (current-buffer))
-                         (if string string (current-kill 0)))))
-
   ;; make term links clickable
   (defun my-term-hook ()
     (goto-address-mode)
