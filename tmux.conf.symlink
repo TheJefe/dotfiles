@@ -49,15 +49,10 @@ setw -g automatic-rename
 # 12 hour clock
 set-window-option -g clock-mode-style 12
 
-# Status bar customization
-set -g status-bg black
-set -g status-fg white
-set -g status-interval 5
-set -g status-left-length 90
-set -g status-right-length 60
-set -g status-left "#[fg=Green]#S#[fg=white]::#[fg=blue] #(hostname -s)#[fg=white]::##[fg=yellow]#(curl ipecho.net/plain;echo)"
-set -g status-justify left
-set -g status-right '#[fg=Cyan]#S #[fg=white]⏰  %a %d %b %I:%M%p'
+# Status bar customization with powerline-status
+# Location found with `pip show powerline-status`
+source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+run-shell "powerline-daemon -q"
 
 # Disabled because emacs likes these bindings
 # Smart pane switching with awareness of vim splits
@@ -68,9 +63,6 @@ set -g status-right '#[fg=Cyan]#S #[fg=white]⏰  %a %d %b %I:%M%p'
 #bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
 #bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 #bind C-l send-keys 'C-l'
-
-# Powerline
-source ~/.powerline.conf
 
 # For OSX only
 if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'

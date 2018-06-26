@@ -45,6 +45,9 @@ set -o vi
 set completion-ignore-case on
 set show-all-if-ambiguous on
 
+# Powerline, used by VIM and TMUX
+export POWERLINE_DIR=$(pip show powerline-status | grep Location | cut -d " " -f 2)
+
 # improve ruby performance
 export RUBY_GC_HEAP_INIT_SLOTS=1000000
 export RUBY_HEAP_FREE_MIN=500000

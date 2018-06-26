@@ -12,7 +12,6 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
   - `brew install git`
   - `brew install python`
   - `brew install python@2`
-  - `pip install powerline-status`
 
 ## To install
 
@@ -24,6 +23,20 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
     ./script/bootstrap
     vim
     :BundleInstall
+
+## Powerline
+
+```bash
+brew install socat
+pip install psutil
+brew install libgit2
+pip install pygit2
+pip install hglib
+pip install bzr
+pip install pyuv
+pip install i3ipc
+pip install powerline-status
+```
 
 ## MacVim
 
