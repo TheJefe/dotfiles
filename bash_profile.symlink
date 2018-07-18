@@ -264,6 +264,7 @@ complete -F _docker_logs dlf
 # Docker-compose
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
+alias dcr='docker-compose restart'
 
 dclean() {
   printf "\n>>> Deleting stopped containers\n\n"
