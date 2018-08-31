@@ -158,6 +158,7 @@ gl --since=${yesterworkday}
 
 # show list of directories
 alias d='ls -l | grep ^d'
+alias cat='bat'
 
 function gi() {
   /git/gi/gi "$@";

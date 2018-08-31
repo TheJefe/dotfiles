@@ -77,4 +77,5 @@ brew install bash-completion2
 ```bash
 brew install ispell  # used for spell checking in spacemacs
 brew install thefuck # awesome tool for fixing screwed up commands
+brew install bat # cat replacement
 ```
