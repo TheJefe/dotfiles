@@ -37,6 +37,7 @@ Plugin 'junegunn/vim-github-dashboard'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'hdima/python-syntax'
 Plugin 'tpope/vim-rvm'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
 " END Plugins ==================================
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
