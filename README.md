@@ -78,4 +78,6 @@ brew install bash-completion2
 brew install ispell  # used for spell checking in spacemacs
 brew install thefuck # awesome tool for fixing screwed up commands
 brew install bat # cat replacement
+brew install fzf
+$(brew --prefix)/opt/fzf/install # To install useful key bindings and fuzzy completion:
 ```

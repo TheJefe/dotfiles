@@ -283,6 +283,8 @@ complete -F _docker_exec dbash
 # Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
 
+# Use fuzzy finder
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 

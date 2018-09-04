@@ -38,6 +38,8 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'hdima/python-syntax'
 Plugin 'tpope/vim-rvm'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 " END Plugins ==================================
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -78,9 +80,14 @@ autocmd BufRead,BufNewFile *.rb set sw=2 sts=2 et
 :nmap <C-i> i_<Esc>r
 
 " Give a shortcut to CtrlP
-map <C-p> :CtrlP<CR>
-map <leader>r :CtrlP<CR>
+"map <C-p> :CtrlP<CR>
+"map <leader>r :CtrlP<CR>
 set wildignore+=*.png,*.jpg,*.pdf,*.swf
+
+" fzf fuzzy finding
+set rtp+=/usr/local/opt/fzf
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>r :Files<CR>
 
 " save ctrlP cache
 let g:ctrlp_clear_cache_on_exit = 0
