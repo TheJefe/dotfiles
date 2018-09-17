@@ -225,10 +225,6 @@ alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -
 # another way?
 #alias clear_py_cache='find . -type d -name __pycache__ -exec rm -rf {} \;'
 
-# Tii specific environment variable
-export PINTSIDE_POS_THREADS=1
-export CHESHIRE_CONTENT=${PROJECT_HOME}/hamlet
-
 # This runs a shell script that returns temporary keys that need to be added to the current environment
 # This is specificly tied to Tii things
 function assume() {
