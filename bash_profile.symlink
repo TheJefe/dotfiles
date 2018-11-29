@@ -113,6 +113,9 @@ export HISTCONTROL=ignoredups:erasedups
 # append history entries..
 shopt -s histappend
 
+# bash hisotry size
+export HISTFILESIZE=100000
+
 # git alias
 alias gs="git status"
 alias gss='git status -s'
