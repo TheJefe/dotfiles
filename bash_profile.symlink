@@ -56,6 +56,9 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=100000000
 export RUBY_GC_HEAP_FREE_SLOTS=20000
 
+# golang
+export GOPATH=~/go
+
 function la {
   ls -alh $1
 }
