@@ -81,3 +81,18 @@ brew install bat # cat replacement
 brew install fzf
 $(brew --prefix)/opt/fzf/install # To install useful key bindings and fuzzy completion:
 ```
+
+## Troubleshooting
+
+If you see errors like this..
+
+```
+-bash: declare: -A: invalid option
+declare: usage: declare [-afFirtx] [-p] [name[=value] ...]
+-bash: complete: -D: invalid option
+complete: usage: complete [-abcdefgjksuv] [-pr] [-o option] [-A action] [-G globpat] [-W wordlist] [-P prefix] [-S suffix] [-X filterpat] [-F function] [-C command] [name ...]
+```
+
+Then the wrong version of bash is being used when starting up. It could be that
+you are still using the bash executable that came with the OS. In the case of using
+TMUX, it could be the configuration using the wrong bash executable.
