@@ -210,8 +210,7 @@ alias ~="cd ~"
 alias -- -="cd -"
 
 # used for virtualenv
-export PROJECT_HOME=$HOME/Projects
-export NLTK_DATA=$HOME/nltk_data
+export PROJECT_HOME=$HOME/git
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
