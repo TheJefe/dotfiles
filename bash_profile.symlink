@@ -232,6 +232,7 @@ alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -
 
 # Kubernetes
 export KUBECONFIG=~/.kube/kubeconfig
+alias k='kubectl'
 
 # This runs a shell script that returns temporary keys that need to be added to the current environment
 # This is specificly tied to Tii things
