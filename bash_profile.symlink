@@ -234,13 +234,9 @@ alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -
 export KUBECONFIG=~/.kube/kubeconfig
 alias k='kubectl'
 
-# This runs a shell script that returns temporary keys that need to be added to the current environment
-# This is specificly tied to Tii things
-function assume() {
-    eval $(assume_role $@ 3600|grep ^export)
-}
 # Used to share temporary keys across sessions
-alias gk='export `cat ~/.custom_keys`'
+## Not currently used and alias is needed for other things
+# alias gk='export `cat ~/.custom_keys`'
 
 if [ -f /usr/local/bin/aws_completer ]; then
   complete -C '/usr/local/bin/aws_completer' aws
