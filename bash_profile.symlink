@@ -91,15 +91,6 @@ function tb() {
   git pull --no-ff --no-edit origin $@
 }
 
-# shortcut for rails console
-function rc() {
-if [ -z "$@" ]; then
-  rails c
-else
-  ttmscalr rails_c -f $@
-fi
-}
-
 # this is just a nicer way of greping for a process
 function psgrep(){
   ps aux | grep -i $@
