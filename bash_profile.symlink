@@ -101,6 +101,11 @@ function skill(){
   pgrep -f $@ | xargs kill -9
 }
 
+# Depends on bastion being defined in ~/.ssh/config
+function sshb() {
+    ssh "$@" -o "proxycommand ssh -W %h:%p bastion"
+}
+
 #### share history across terminal sessions
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups
