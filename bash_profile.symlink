@@ -20,22 +20,21 @@ alias herkou="heroku"
 #export PS1="\w$ "
 
 ## Liquid prompt
-source ~/git/liquidprompt/liquidprompt
+lppath=~/git/liquidprompt/liquidprompt
+if [ -f ${lppath} ]; then
+  source ${lppath}
+else
+  echo "liquidprompt no found at ${lppath}"
+fi
 
 ## tmuxinator autocompletion
 source ~/.tmuxinator.bash
 alias mux='tmuxinator'
 alias md='mux default'
 
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-NO_COLOUR="\[\033[0m\]"
-
-#PS1="$NO_COLOUR:\w$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
-
-if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
-  . $(brew --prefix)/share/bash-completion/bash_completion
+brew_prefix=$(brew --prefix)
+if [ -f ${brew_prefix}/share/bash-completion/bash_completion ]; then
+  . ${brew_prefix}/share/bash-completion/bash_completion
 fi
 
 # use vi bindings on the terminal
@@ -208,7 +207,6 @@ alias -- -="cd -"
 # used for virtualenv
 export PROJECT_HOME=$HOME/git
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   . /usr/local/bin/virtualenvwrapper.sh
@@ -223,8 +221,6 @@ function frameworkpython {
 }
 
 alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
-# another way?
-#alias clear_py_cache='find . -type d -name __pycache__ -exec rm -rf {} \;'
 
 # Kubernetes
 export KUBECONFIG=~/.kube/kubeconfig
@@ -287,6 +283,3 @@ dbu() { docker build -t=$1 .; }
 alias ts="tmux attach-session -t _hacking || tmux new-session -s _hacking -n neo"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
