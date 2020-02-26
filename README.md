@@ -8,6 +8,8 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
 ## Prerequisites
 
 - [LiquidPrompt](https://github.com/nojhan/liquidprompt) installed to `/git/liquidprompt`
+- [Starship](https://starship.rs)
+  - `brew install starship`
 - [Powerline](https://powerline.readthedocs.org/en/latest/installation.html) installed
   - `brew install git`
   - `brew install python`

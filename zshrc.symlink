@@ -76,6 +76,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# Starship
+eval "$(starship init zsh)"
 
 source ~/.xsh
 

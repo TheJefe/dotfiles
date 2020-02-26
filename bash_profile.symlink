@@ -20,12 +20,15 @@ alias herkou="heroku"
 #export PS1="\w$ "
 
 ## Liquid prompt
-lppath=~/git/liquidprompt/liquidprompt
-if [ -f ${lppath} ]; then
-  source ${lppath}
-else
-  echo "liquidprompt no found at ${lppath}"
-fi
+#lppath=~/git/liquidprompt/liquidprompt
+#if [ -f ${lppath} ]; then
+  #source ${lppath}
+#else
+  #echo "liquidprompt no found at ${lppath}"
+#fi
+
+# Starship
+eval "$(starship init bash)"
 
 ## tmuxinator autocompletion
 source ~/.tmuxinator.bash
