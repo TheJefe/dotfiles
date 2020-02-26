@@ -1,3 +1,6 @@
+if [ -f /usr/local/opt/python/libexec/bin/python ]; then # brew symlinks python to a weird place
+  PATH=/usr/local/opt/python/libexec/bin:$PATH
+fi
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 PATH=$PATH:~/scripts
