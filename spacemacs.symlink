@@ -472,6 +472,11 @@ layers configuration. You are free to put any user code."
   (add-hook 'term-mode-hook 'bb/setup-term-mode)
   (setq groovy-indent-offset 2)
 
+  ;; Uses PATH setup by ~/.bash_profile
+  (use-package exec-path-from-shell
+    :config
+    (exec-path-from-shell-initialize))
+
   ;; End custom config
   )
 ;; Do not write anything past this comment. This is where Emacs will
