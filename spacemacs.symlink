@@ -31,6 +31,12 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     (go :variables
+         go-format-before-save t
+         gofmt-command "goimports"
+         go-use-golangci-lint t
+         godoc-at-point-function 'godoc-gogetdoc
+         )
      javascript
      html
      sql
