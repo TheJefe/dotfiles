@@ -477,6 +477,8 @@ layers configuration. You are free to put any user code."
 
   (add-hook 'term-mode-hook 'bb/setup-term-mode)
   (setq groovy-indent-offset 2)
+  (setq css-indent-offset 2)
+  (setq standard-indent 2)
 
   ;; Uses PATH setup by ~/.bash_profile
   (use-package exec-path-from-shell
