@@ -20,7 +20,7 @@ Plugin 'vim-scripts/SQLUtilities'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'slim-template/vim-slim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'hughbien/md-vim'
 Plugin 'ervandew/supertab'
 Plugin 'kablamo/vim-git-log'
@@ -40,6 +40,7 @@ Plugin 'tpope/vim-rvm'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'ryanoasis/vim-devicons'
 " END Plugins ==================================
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,6 +65,7 @@ set hlsearch
 set nowrap
 set hidden
 set omnifunc=syntaxcomplete#Complete
+set encoding=UTF-8
 
 " tab should create 2 spaces
 set expandtab
