@@ -439,11 +439,6 @@ layers configuration. You are free to put any user code."
   (spaceline-spacemacs-theme 'datetime)
   (setq spaceline-minor-modes-p nil)
 
-  ;; Configure git gutter (diff-hl) the way I like it
-  (setq diff-hl-side 'left)
-  (global-diff-hl-mode)
-  (diff-hl-flydiff-mode)
-
   (evil-leader/set-key "ga" 'vc-annotate)
 
   ;; override the rspec test commands with ruby ones
