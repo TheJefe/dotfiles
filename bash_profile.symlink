@@ -234,6 +234,9 @@ export KUBECONFIG=~/.kube/kubeconfig
 alias k='kubectl'
 complete -F __start_kubectl k
 
+# Bash into running pod
+kbash() { kubectl exec -n jenkins --stdin --tty "$@" -- /bin/bash; }
+
 # Used to share temporary keys across sessions
 ## Not currently used and alias is needed for other things
 # alias gk='export `cat ~/.custom_keys`'
