@@ -232,6 +232,7 @@ alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -
 # Kubernetes
 export KUBECONFIG=~/.kube/kubeconfig
 alias k='kubectl'
+complete -F __start_kubectl k
 
 # Used to share temporary keys across sessions
 ## Not currently used and alias is needed for other things
