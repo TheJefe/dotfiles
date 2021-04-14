@@ -64,6 +64,7 @@ export RUBY_GC_HEAP_FREE_SLOTS=20000
 # golang
 export GOPATH=~/go
 
+export PATH="${GOPATH}/bin:$PATH"
 function la {
   ls -alh $1
 }
