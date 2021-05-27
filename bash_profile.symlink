@@ -255,7 +255,7 @@ complete -F _docker_images di
 alias drmi='docker rmi'
 complete -F _docker_rmi drmi
 alias dr='docker run'
-alias dri='docker run -it'
+alias dri='docker run -it --rm --entrypoint ""'
 complete -F _docker_run dri
 complete -F _docker_run dr
 alias db='docker build'
