@@ -292,4 +292,9 @@ dbu() { docker build -t=$1 .; }
 # Startup command to get tmux the way I like
 alias ts="tmux attach-session -t _hacking || tmux new-session -s _hacking -n neo"
 
+# Function to decode the payload of a jwt locally
+jwt-decode () {
+	jq -R 'split(".") | .[1] | @base64d | fromjson' <<< "$1"
+}
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
