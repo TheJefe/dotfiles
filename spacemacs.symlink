@@ -30,13 +30,19 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(systemd
+     protobuf
+     (typescript :variables
+                 typescript-indent-level 2
+                 )
+     rust
      (go :variables
          go-format-before-save t
          gofmt-command "goimports"
          go-use-golangci-lint t
          godoc-at-point-function 'godoc-gogetdoc
          )
+     ansible
      javascript
      html
      sql
@@ -61,24 +67,27 @@ values."
      emacs-lisp
      git
      github
-     version-control
+     (version-control :variables
+                      version-control-diff-side 'left)
      markdown
      spell-checking
      syntax-checking
      ruby
      ruby-on-rails
-     shell
-     terraform
+     (shell :variables
+            exec-path-from-shell-arguments '("-l")
+            )
+     (terraform :variables terraform-auto-format-on-save t)
      org
      ipython-notebook
+     docker
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
-   ;; packages then consider to create a layer, you can also put the
-   ;; configuration in `dotspacemacs/config'.
+   ;; packages, then consider creating a layer. You can also put the
+   ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(key-chord coffee-mode diff-hl groovy-mode py-autopep8)
-   ;; A list of packages and/or extensions that will not be install and loaded.
-   ;; list of packages that cannot be updated.
+   ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
@@ -311,7 +320,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("pt" "ag" "ack" "grep")
+   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -344,14 +353,14 @@ layers configuration. You are free to put any user code."
   (key-chord-define evil-hybrid-state-map "jj" 'evil-normal-state)
   (key-chord-mode 1)
 
-  ;; (global-company-mode)
+  (global-company-mode)
 
   (key-chord-define evil-normal-state-map "ss" 'save-buffer)
 
   ;; show line numbers
-  (global-linum-mode)
+  ;; (global-linum-mode)
   ;; line numbers with a space before the line text
-  (setq linum-format "%d ")
+  ;; (setq linum-format "%d ")
 
   ;; Temporarily speed up neotree https://github.com/syl20bnr/spacemacs/issues/2943
   (setq neo-vc-integration nil)
@@ -366,15 +375,6 @@ layers configuration. You are free to put any user code."
           (kill-buffer buffer))
       ad-do-it))
   (ad-activate 'term-sentinel)
-
-  ; override option sent through ansi-term
-  (defun jnm/term-ansi-make-term (fn &rest args)
-    (let ((new-args (if (string= (second args) "/usr/local/bin/bash")
-                        (append args (list nil "--login"))
-                      args)))
-      (apply fn new-args)))
-
-  (advice-add 'term-ansi-make-term :around #'jnm/term-ansi-make-term)
 
   ;; make term links clickable
   (defun my-term-hook ()
@@ -391,7 +391,7 @@ layers configuration. You are free to put any user code."
         )
 
   (setq projectile-globally-ignored-directories
-        '("solr" "log" "node_modules" "build")
+        '("solr" "log" "node_modules" "build" ".terraform" ".gradle")
         )
   ;; Turn off line wrapping
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
@@ -445,6 +445,8 @@ layers configuration. You are free to put any user code."
   (evil-leader/set-key "mtt" 'ruby-test-run-at-point)
   (evil-leader/set-key "mtb" 'ruby-test-run)
 
+  ;; fix the magit-blame mapping
+  (evil-leader/set-key "gb" 'magit-blame)
   (setq-default git-magit-status-fullscreen t)
 
   ;; Open markdown files in chrome
@@ -477,29 +479,34 @@ layers configuration. You are free to put any user code."
 
   ;; Uses PATH setup by ~/.bash_profile
   (use-package exec-path-from-shell
+    ;;:ensure t
     :config
     (exec-path-from-shell-initialize))
 
+  ;; these aren't working yet
+  ;; (setq exec-path-from-shell-check-startup-files nil)
+  ;; (setq exec-path-from-shell-arguments '("-l"))
   ;; End custom config
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(flycheck-rubocoprc "config/.rubocop.yml")
- '(helm-ag-base-command "pt -i --nocolor --nogroup")
  '(js-indent-level 2)
  '(package-selected-packages
-   (quote
-    (winum fuzzy livid-mode skewer-mode js2-refactor multiple-cursors web-beautify simple-httpd json-mode json-snatcher json-reformat js2-mode js-doc company-tern dash-functional tern web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data sql-indent csv-mode phpunit phpcbf php-auto-yasnippets drupal-mode php-mode yaml-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode company-anaconda anaconda-mode pythonic xterm-color ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smeargle shell-pop rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters projectile-rails rake inflections popwin persp-mode pcre2el pbcopy paradox spinner osx-trash osx-dictionary orgit org org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode minitest markdown-toc markdown-mode magit-gitflow magit-gh-pulls macrostep lorem-ipsum linum-relative link-hint launchctl key-chord info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag groovy-mode google-translate golden-ratio gitignore-mode github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight eshell-z eshell-prompt-extras esh-help elisp-slime-nav dumb-jump f s diminish diff-hl company-statistics company-quickhelp pos-tip company column-enforce-mode coffee-mode clean-aindent-mode chruby bundler inf-ruby bind-map bind-key auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup quelpa package-build spacemacs-theme)))
- '(paradox-github-token t))
+   '(systemd protobuf-mode anaphora tide typescript-mode spinner undo-tree lv polymode transient toml-mode racer flycheck-rust cargo rust-mode go-guru go-eldoc company-go go-mode dockerfile-mode docker tablist docker-tramp hcl-mode powerline rake inflections pcre2el org-category-capture alert log4e gntp org-plus-contrib markdown-mode json-snatcher json-reformat multiple-cursors hydra parent-mode projectile haml-mode gitignore-mode fringe-helper git-gutter+ git-gutter gh marshal logito pcache ht flyspell-correct flycheck flx magit magit-popup git-commit ghub treepy graphql with-editor smartparens iedit anzu evil goto-chg highlight skewer-mode request-deferred websocket request deferred js2-mode simple-httpd web-completion-data dash-functional tern pos-tip inf-ruby bind-map bind-key yasnippet packed anaconda-mode pythonic helm avy helm-core async auto-complete popup company f s dash pkg-info epl puppet-mode jinja2-mode company-ansible ansible-doc ansible magithub ghub+ apiwrap yapfify yaml-mode xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org terraform-mode tagedit sql-indent spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters pyvenv pytest pyenv-mode py-isort py-autopep8 pug-mode projectile-rails popwin pip-requirements persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree multi-term move-text mmm-mode minitest markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint launchctl key-chord json-mode js2-refactor js-doc indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag groovy-mode google-translate golden-ratio gnuplot github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gist gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator feature-mode fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav ein dumb-jump diminish diff-hl cython-mode csv-mode company-web company-tern company-statistics company-quickhelp company-anaconda column-enforce-mode coffee-mode clean-aindent-mode chruby bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ )
+)
