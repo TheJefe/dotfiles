@@ -305,6 +305,9 @@ gkff() {
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
+# Hack to fix git autocomplete. this line should not be necessary
+[ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ] && . "/usr/local/etc/bash_completion.d/git-completion.bash"
+
 [ -f "/usr/local/opt/asdf/libexec/asdf.sh" ] && . /usr/local/opt/asdf/libexec/asdf.sh
 
 [ -f "/usr/local/opt/asdf/etc/bash_completion.d/asdf.bash" ] && . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
