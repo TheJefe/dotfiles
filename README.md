@@ -7,6 +7,7 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
 
 ## Prerequisites
 
+- [Homebrew](https://brew.sh)
 - [LiquidPrompt](https://github.com/nojhan/liquidprompt) installed to `/git/liquidprompt`
 - [Starship](https://starship.rs)
   - `brew install starship`
