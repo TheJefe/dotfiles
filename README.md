@@ -85,6 +85,10 @@ brew install fzf
 $(brew --prefix)/opt/fzf/install # To install useful key bindings and fuzzy completion:
 ```
 
+## Slack theme
+
+`#000000,#350D36,#635DFF,#FFFFFF,#2A2E35,#FFFFFF,#635DFF,#FF4F40,#000000,#FFFFFF`
+
 ## Troubleshooting
 
 If you see errors like this..
