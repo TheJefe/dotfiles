@@ -15,6 +15,7 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
   - `brew install git`
   - `brew install python`
   - `brew install python@2`
+  - `brew install bash`
 
 ## To install
 
@@ -49,7 +50,7 @@ pip install powerline-status
 
 `brew install tmux`
 
-### Install patched font
+### iTerm Setup and install patched font
 
 - download from https://github.com/powerline/fonts/blob/master/Inconsolata/Inconsolata%20for%20Powerline.otf
 - Have iTerm use this font for both ASCII and NON-ASCII characters
@@ -74,12 +75,6 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 brew tap homebrew/versions
 brew install bash-completion2
 ```
-
-## iTerm
-
-*Preferences -> Profiles -> default -> General*
-*Commmand*: `/usr/local/bin/bash -l`
-*Send text at start*: `tmux attach-session -t _hacking || tmux new-session -s _hacking -n neo`
 
 ## Other packages
 
