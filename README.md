@@ -72,7 +72,6 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ## Bash completion 2
 
 ```bash
-brew tap homebrew/versions
 brew install bash-completion2
 ```
 
