@@ -52,7 +52,7 @@ pip install powerline-status
 
 ### iTerm Setup and install patched font
 
-- download from https://github.com/powerline/fonts/blob/master/Inconsolata/Inconsolata%20for%20Powerline.otf
+- download from https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Inconsolata/complete/Inconsolata%20Nerd%20Font%20Complete.otf
 - Have iTerm use this font for both ASCII and NON-ASCII characters
 - Set the login command to `/usr/local/bin/bash -l`, this tells it to use the brew version of bash
 - Set iterm start command as `tmux attach-session -t hacking || tmux new-session -s hacking -n neo`
