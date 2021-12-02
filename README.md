@@ -75,6 +75,12 @@ brew tap homebrew/versions
 brew install bash-completion2
 ```
 
+## iTerm
+
+*Preferences -> Profiles -> default -> General*
+*Commmand*: `/usr/local/bin/bash -l`
+*Send text at start*: `tmux attach-session -t _hacking || tmux new-session -s _hacking -n neo`
+
 ## Other packages
 
 ```bash
