@@ -61,13 +61,13 @@ pip install powerline-status
 
 ```bash
 brew tap d12frosted/emacs-plus
-brew install emacs-plus
-brew linkapps emacs-plus
-brew cask
-brew cask install emacs
+brew install emacs-plus@28 --with-spacemacs-icon
 
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ```
+
+After installing emacs-plus, you have to link the app with a command like..
+`ln -Fs "/opt/homebrew/Cellar/emacs-plus@28/28.0.50/Emacs.app" /Applications/Emacs.app`
 
 ## Bash completion 2
 
