@@ -5,10 +5,6 @@ PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 PATH=$PATH:~/scripts
 
-if [ -f ~/.bashrc ]; then
-  source ~/.bashrc
-fi
-
 # Default Editor
 export EDITOR=vim
 
@@ -110,6 +106,14 @@ function skill(){
 function sshb() {
     ssh "$@" -o "proxycommand ssh -W %h:%p bastion"
 }
+
+# Conditional load
+function loadIfExists(){
+    [ -f "$@" ] && . "$@"
+}
+
+
+loadIfExists "~/.bashrc"
 
 #### share history across terminal sessions
 # avoid duplicates..
@@ -214,9 +218,7 @@ alias -- -="cd -"
 export PROJECT_HOME=$HOME/git
 export WORKON_HOME=$HOME/.virtualenvs
 
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-  . /usr/local/bin/virtualenvwrapper.sh
-fi
+loadIfExists "/usr/local/bin/virtualenvwrapper.sh"
 
 function frameworkpython {
     if [[ ! -z "$VIRTUAL_ENV" ]]; then
@@ -287,7 +289,7 @@ complete -F _docker_exec dbash
 dbu() { docker build -t=$1 .; }
 
 # Use fuzzy finder
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+loadIfExists ~/.fzf.bash
 
 # Startup command to get tmux the way I like
 alias ts="tmux attach-session -t _hacking || tmux new-session -s _hacking -n neo"
@@ -302,11 +304,12 @@ gkff() {
   GK_URL=`gk c -u -p "$@"` && /Applications/Firefox.app/Contents/MacOS/firefox -no-remote -CreateProfile "$@" &> /dev/null && /Applications/Firefox.app/Contents/MacOS/firefox -P "$@" $GK_URL &> /dev/null &
 }
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+loadIfExists "$HOME/.rvm/scripts/rvm"
+
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 # Hack to fix git autocomplete. this line should not be necessary
-[ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ] && . "/usr/local/etc/bash_completion.d/git-completion.bash"
+loadIfExists "/usr/local/etc/bash_completion.d/git-completion.bash"
 
-[ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] && . $(brew --prefix asdf)/libexec/asdf.sh
+loadIfExists "$(brew --prefix asdf)/libexec/asdf.sh"
 
