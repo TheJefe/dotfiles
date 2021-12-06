@@ -69,6 +69,10 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 After installing emacs-plus, you have to link the app with a command like..
 `ln -Fs "/opt/homebrew/Cellar/emacs-plus@28/28.0.50/Emacs.app" /Applications/Emacs.app`
 
+### Troubleshooting environment path and variables
+
+run `SPC SPC force-init-spacemacs-env`
+
 ## Bash completion 2
 
 ```bash
