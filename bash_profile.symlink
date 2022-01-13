@@ -1,3 +1,5 @@
+# Add homebrew to path
+eval "$(/opt/homebrew/bin/brew shellenv)"
 if [ -f /usr/local/opt/python/libexec/bin/python ]; then # brew symlinks python to a weird place
   PATH=/usr/local/opt/python/libexec/bin:$PATH
 fi
@@ -112,8 +114,7 @@ function loadIfExists(){
     [ -f "$@" ] && . "$@"
 }
 
-
-loadIfExists "~/.bashrc"
+loadIfExists ~/.bashrc
 
 #### share history across terminal sessions
 # avoid duplicates..
@@ -231,6 +232,7 @@ function frameworkpython {
 alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
 
 # Kubernetes
+source <(kubectl completion bash) # auto-complete
 export KUBECONFIG=~/.kube/kubeconfig
 alias k='kubectl'
 complete -F __start_kubectl k
@@ -309,7 +311,21 @@ loadIfExists "$HOME/.rvm/scripts/rvm"
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 
 # Hack to fix git autocomplete. this line should not be necessary
-loadIfExists "/usr/local/etc/bash_completion.d/git-completion.bash"
+# loadIfExists "/usr/local/etc/bash_completion.d/git-completion.bash"
+loadIfExists "/opt/homebrew/etc/profile.d/bash_completion.sh"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+loadIfExists "/opt/homebrew/etc/bash_completion.d/git-completion.bash"
 
 loadIfExists "$(brew --prefix asdf)/libexec/asdf.sh"
 
+# Add psql to the path
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Add openjdk to the path. Installed by brew
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+# Add grep and others from homebrew to path
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+
+export PATH=/git/bats-core/bin:$PATH
