@@ -1,2 +1,2 @@
-set-option -g default-shell /usr/local/bin/bash
-set-option -g default-command "/usr/local/bin/bash -l"
+set-option -g default-shell /opt/homebrew/bin/bash
+set-option -g default-command "/opt/homebrew/bin/bash -l"

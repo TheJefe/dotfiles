@@ -1,5 +1,5 @@
-set-option -g default-shell bash
-set-option -g default-command "bash -l"
+# set-option -g default-shell /opt/homebrew/bin/bash
+# set-option -g default-command "/opt/homebrew/bin/bash -l"
 set -g default-terminal "screen-256color"
 
 set -g prefix C-a
@@ -51,7 +51,7 @@ set-window-option -g clock-mode-style 12
 
 # Status bar customization with powerline-status
 # Location found with `pip show powerline-status`
-source "/usr/local/lib/python3.9/site-packages/powerline/bindings/tmux/powerline.conf"
+source "/opt/homebrew/lib/python3.9/site-packages/powerline/bindings/tmux/powerline.conf"
 run-shell "powerline-daemon -q"
 
 # Disabled because emacs likes these bindings
@@ -66,3 +66,6 @@ run-shell "powerline-daemon -q"
 
 # For OSX only
 if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
+
+# For not OSX
+if-shell 'test "$(uname)" != "Darwin"' 'source ~/.tmux-others.conf'
