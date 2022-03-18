@@ -13,5 +13,6 @@ disabled = true
 
 [env_var]
 variable = "GK_PROFILE"
-symbol = "🔐 "
+symbol = "🔐"
 style = "bright-red"
+format = "with [$symbol $env_value]($style)"
