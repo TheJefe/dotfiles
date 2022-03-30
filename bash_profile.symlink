@@ -184,7 +184,7 @@ function gi() {
 
 # removes all merged branches except rc master and the current branch
 function branch_cleanup() {
-  git branch --merged | grep -v "\*\|rc\|master" | xargs -n 1 git branch -d
+  git branch --merged | grep -v "\*\|rc\|master\|main" | xargs -n 1 git branch -d
   git fetch -p
 }
 
