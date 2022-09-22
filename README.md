@@ -79,6 +79,12 @@ run `SPC SPC force-init-spacemacs-env`
 brew install bash-completion2
 ```
 
+docker bash auto completion on macs
+```bash
+curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/contrib/completion/bash/docker \
+-o $(brew --prefix)/etc/bash_completion.d/docker
+```
+
 ## Other packages
 
 ```bash
