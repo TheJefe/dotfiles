@@ -16,3 +16,6 @@ variable = "GK_PROFILE"
 symbol = "🔐"
 style = "bright-red"
 format = "with [$symbol $env_value]($style)"
+
+[docker_context]
+disabled = true
