@@ -702,6 +702,16 @@ layers configuration. You are free to put any user code."
   ;; these aren't working yet
   ;; (setq exec-path-from-shell-check-startup-files nil)
   ;; (setq exec-path-from-shell-arguments '("-l"))
+
+  ;; https://www.blogbyben.com/2022/05/gotcha-emacs-on-mac-os-too-many-files.html
+  (defun file-notify-rm-all-watches ()
+    "Remove all existing file notification watches from Emacs."
+    (interactive)
+    (maphash
+     (lambda (key _value)
+       (file-notify-rm-watch key))
+     file-notify-descriptors))
+
   ;; End custom config
   )
 ;; Do not write anything past this comment. This is where Emacs will
