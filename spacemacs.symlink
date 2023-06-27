@@ -604,8 +604,11 @@ layers configuration. You are free to put any user code."
         )
 
   (setq projectile-globally-ignored-directories
-        '("solr" "log" "node_modules" "build" ".terraform" ".gradle" "vendor")
+        '("solr" "log" "^node_modules$" "build" ".terraform" ".gradle" "^vendor$" ".cache" ".bash_history")
         )
+  (setq projectile-enable-caching t)
+  (setq projectile-indexing-method 'native)
+
   ;; Turn off line wrapping
   (add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
 
