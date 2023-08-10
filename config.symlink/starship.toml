@@ -11,11 +11,20 @@ error_symbol = "[➜](bold red)"
 [package]
 disabled = true
 
-[env_var]
+[env_var.GK]
 variable = "GK_PROFILE"
 symbol = "🔐"
 style = "bright-red"
 format = "with [$symbol $env_value]($style)"
 
+[env_var.L0]
+variable = "LAYER0_PROFILE"
+symbol = "⎈"
+style = "bright-white"
+format = "with [$symbol $env_value]($style)"
+
 [docker_context]
 disabled = true
+
+[status]
+disabled = false
