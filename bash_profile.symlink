@@ -269,6 +269,9 @@ complete -F _docker_logs dl
 alias dlf='docker logs -f'
 complete -F _docker_logs dlf
 
+# https://github.com/docker/for-mac/issues/6529
+export DOCKER_HOST="unix://$HOME/.docker/run/docker.sock"
+
 # Docker-compose
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
