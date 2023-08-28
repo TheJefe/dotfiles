@@ -312,6 +312,26 @@ gkff() {
   GK_URL=`gk c -u -p "$@"` && /Applications/Firefox.app/Contents/MacOS/firefox -no-remote -CreateProfile "$@" &> /dev/null && /Applications/Firefox.app/Contents/MacOS/firefox -P "$@" $GK_URL &> /dev/null &
 }
 
+# Function for cleaning up artifactory labels more quickly
+apd() {
+  curl -u${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN} -XDELETE "https://a0us.jfrog.io/artifactory/api/storage/docker-local/docker/$1?properties=docker.label.com.jfrog.artifactory.retention.maxDays&recursive=1"
+}
+
+# Function helps managing the kubectl profile with env vars
+function kp() {
+  kubectx $1
+  unset KUBECTL_PROFILE
+  export KUBECTL_PROFILE=$(kubectx -c):$(kubens -c)
+}
+function kpn() {
+  kubens $1
+  unset KUBECTL_PROFILE
+  export KUBECTL_PROFILE=$(kubectx -c):$(kubens -c)
+}
+function kp0() {
+  unset KUBECTL_PROFILE
+}
+
 loadIfExists "$HOME/.rvm/scripts/rvm"
 
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"

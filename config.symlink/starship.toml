@@ -21,10 +21,16 @@ format = "with [$symbol $env_value]($style)"
 variable = "LAYER0_PROFILE"
 symbol = "⎈"
 style = "bright-white"
-format = "with [$symbol $env_value]($style)"
+format = "with [$symbol $env_value]($style) "
 
 [docker_context]
 disabled = true
 
 [status]
 disabled = false
+
+[env_var.KUBECTX]
+variable = "KUBECTL_PROFILE"
+symbol = "⎈"
+style = "bright-white"
+format = "with [$symbol $env_value]($style) "
