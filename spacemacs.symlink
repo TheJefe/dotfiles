@@ -565,10 +565,10 @@ layers configuration. You are free to put any user code."
   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
   (key-chord-define evil-hybrid-state-map "jj" 'evil-normal-state)
   (key-chord-mode 1)
+  (key-chord-define evil-normal-state-map "ss" 'save-buffer)
 
   (global-company-mode)
 
-  (key-chord-define evil-normal-state-map "ss" 'save-buffer)
 
   ;; show line numbers
   ;; (global-linum-mode)

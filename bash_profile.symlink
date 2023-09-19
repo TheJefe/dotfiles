@@ -334,7 +334,7 @@ function kp0() {
 
 loadIfExists "$HOME/.rvm/scripts/rvm"
 
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # Hack to fix git autocomplete. this line should not be necessary
 # loadIfExists "/usr/local/etc/bash_completion.d/git-completion.bash"
