@@ -87,6 +87,7 @@ curl https://raw.githubusercontent.com/docker/docker-ce/master/components/cli/co
 
 ## Other packages
 
+[SizeUp](https://www.irradiatedsoftware.com/sizeup/)
 ```bash
 brew install ispell  # used for spell checking in spacemacs
 brew install thefuck # awesome tool for fixing screwed up commands
