@@ -27,6 +27,8 @@ tap 'd12frosted/emacs-plus'
 brew 'emacs-plus@29'
 brew 'ispell'
 brew 'gpg'
+brew 'pyenv'
+brew 'zsh-autosuggestions'
 
 cask '1password-cli'
 cask 'iterm2'

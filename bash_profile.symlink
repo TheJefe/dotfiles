@@ -48,6 +48,10 @@ set -o vi
 set completion-ignore-case on
 set show-all-if-ambiguous on
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # Powerline, used by VIM and TMUX
 export POWERLINE_DIR=$(pip show powerline-status | grep Location | cut -d " " -f 2)
 

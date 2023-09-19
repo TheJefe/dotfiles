@@ -37,7 +37,7 @@ pip install psutil
 brew install libgit2
 pip install pygit2
 pip install hglib
-pip install bzr
+pip install breezy
 pip install pyuv
 pip install i3ipc
 pip install powerline-status

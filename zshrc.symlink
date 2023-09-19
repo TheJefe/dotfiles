@@ -96,6 +96,10 @@ eval "$(starship init zsh)"
 # Startup command to get tmux the way I like
 alias ts="tmux attach-session -t _hacking || tmux new-session -s _hacking -n neo"
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
