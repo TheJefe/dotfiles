@@ -1,6 +1,7 @@
 [user]
 	name = Jeff Koenig
 	useConfigOnly = true
+	signingKey = 3B8E78934DCBF9C1
 [core]
 	editor = vim
 	autocrlf = input
@@ -37,6 +38,6 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [commit]
-	gpgsign = true
+	gpgsign = false
 [init]
 	defaultBranch = main
