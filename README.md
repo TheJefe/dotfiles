@@ -58,6 +58,20 @@ pip install powerline-status
 - Set the login command to `/usr/local/bin/bash -l`, this tells it to use the brew version of bash
 - Set iterm start command as `tmux attach-session -t hacking || tmux new-session -s hacking -n neo`
 
+### hyperlink support
+
+requires installing tmux from source to get version 3.4 which is not currently available in homebrew
+
+additionally requires a hotfix to powerline to maintain support for the "next-3.4" version of tmux
+
+
+`~/.pyenv/versions/3.11.5/lib/python3.11/site-packages/powerline/bindings/tmux/__init__.py:84`
+
+```
+if version_string == 'next-3.4':
+    return TmuxVersionInfo(float('inf'), 0, version_string)
+```
+
 ## Spacemacs
 
 ```bash
