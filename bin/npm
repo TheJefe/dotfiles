@@ -1,0 +1,3 @@
+#!/bin/bash
+export A0US_NPM_AUTH=op://Private/npmrc_auth/password
+op run -- ${NPM_PATH} $@

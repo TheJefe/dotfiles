@@ -359,3 +359,10 @@ export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
 export PATH=/git/bats-core/bin:$PATH
+
+# wrappers around functions to perform setup tasks
+# this form of wrapping allows this to be used for makefiles as well
+if  command -v npm &> /dev/null && command -v op &> /dev/null ; then
+  export NPM_PATH=$(which npm)
+  export PATH=$(dirname $(readlink $BASH_SOURCE))/bin:$PATH
+fi
