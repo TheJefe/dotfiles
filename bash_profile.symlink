@@ -118,6 +118,15 @@ function loadIfExists(){
     [ -f "$@" ] && . "$@"
 }
 
+# Kubernetes
+source <(kubectl completion bash) # auto-complete
+export KUBECONFIG=~/.kube/kubeconfig
+alias k='kubectl'
+complete -F __start_kubectl k
+
+# Bash into running pod
+kbash() { kubectl exec --stdin --tty "$@" -- /bin/bash; }
+
 loadIfExists ~/.bashrc
 
 #### share history across terminal sessions
@@ -234,15 +243,6 @@ function frameworkpython {
 }
 
 alias clear_py_cache="find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf"
-
-# Kubernetes
-source <(kubectl completion bash) # auto-complete
-export KUBECONFIG=~/.kube/kubeconfig
-alias k='kubectl'
-complete -F __start_kubectl k
-
-# Bash into running pod
-kbash() { kubectl exec --stdin --tty "$@" -- /bin/bash; }
 
 # Used to share temporary keys across sessions
 ## Not currently used and alias is needed for other things
