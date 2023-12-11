@@ -49,7 +49,9 @@ pip install powerline-status
 
 ## Tmux
 
-`brew install tmux`
+`brew install tmux --HEAD`
+
+using `--HEAD` to get latest unreleased changes. Specifically to support links
 
 ### iTerm Setup and install patched font
 
@@ -61,6 +63,11 @@ pip install powerline-status
 ### hyperlink support
 
 requires installing tmux from source to get version 3.4 which is not currently available in homebrew
+```
+cd ${TMUX_SRC_PATH}
+sh autogen.sh
+./configure --enable-utf8proc && make
+```
 
 additionally requires a hotfix to powerline to maintain support for the "next-3.4" version of tmux
 
