@@ -29,6 +29,7 @@ brew 'ispell'
 brew 'gpg'
 brew 'pyenv'
 brew 'zsh-autosuggestions'
+brew 'shortcat'
 
 cask '1password-cli'
 cask 'iterm2'
