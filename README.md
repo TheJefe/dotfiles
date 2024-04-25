@@ -24,10 +24,17 @@ osx customizations came from [github.com/mathiasbynens/dotfiles](https://github.
     cd ~/.dotfiles
     git submodule init
     git submodule update
-    git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     ./script/bootstrap
-    vim
-    :BundleInstall
+
+## Vim
+
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+vim
+:PlugInstall
+```
 
 ## Powerline
 

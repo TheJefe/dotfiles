@@ -1,51 +1,48 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+
+call plug#begin('~/.vim/plugged')
 " Plugins ======================================
-Plugin 'gmarik/Vundle.vim'
-Plugin 'bogado/file-line'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'mattn/gist-vim'
-Plugin 'mattn/webapi-vim' "required for gist vim
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-rails'
-Plugin 'benmills/vimux'
-Plugin 'tpope/vim-markdown'
-Plugin 'vim-scripts/SQLUtilities'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'slim-template/vim-slim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'hughbien/md-vim'
-Plugin 'ervandew/supertab'
-Plugin 'kablamo/vim-git-log'
-Plugin 'tpope/vim-surround'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'mtth/scratch.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'godlygeek/tabular'
-Plugin 'thejefe/vim-prreview'
-"Plugin 'thejefe/github-issues.vim'
-Plugin 'bling/vim-airline'
-Plugin 'junegunn/vim-github-dashboard'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'hdima/python-syntax'
-Plugin 'tpope/vim-rvm'
-Plugin 'martinda/Jenkinsfile-vim-syntax'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'ryanoasis/vim-devicons'
+Plug 'bogado/file-line'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/vimproc.vim'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim' "required for gist vim
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-rails'
+Plug 'benmills/vimux'
+Plug 'tpope/vim-markdown'
+Plug 'vim-scripts/SQLUtilities'
+Plug 'vim-scripts/taglist.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'slim-template/vim-slim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'hughbien/md-vim'
+Plug 'ervandew/supertab'
+Plug 'kablamo/vim-git-log'
+Plug 'tpope/vim-surround'
+Plug 'altercation/vim-colors-solarized'
+Plug 'mtth/scratch.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'godlygeek/tabular'
+Plug 'thejefe/vim-prreview'
+"Plug 'thejefe/github-issues.vim'
+Plug 'bling/vim-airline'
+Plug 'junegunn/vim-github-dashboard'
+Plug 'nanotech/jellybeans.vim'
+Plug 'hdima/python-syntax'
+Plug 'tpope/vim-rvm'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'github/copilot.vim'
 " END Plugins ==================================
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" END Vundle
+call plug#end()
+" END vim-plug =================================
 
 " Required for neovim
 let g:python_host_prog='/usr/local/bin/python'
