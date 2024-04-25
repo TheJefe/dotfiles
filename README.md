@@ -90,13 +90,10 @@ if version_string == 'next-3.4':
 
 ```bash
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@28 --with-spacemacs-icon
+brew install emacs-plus@29 --with-spacemacs-icon
 
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ```
-
-After installing emacs-plus, you have to link the app with a command like..
-`ln -Fs "/opt/homebrew/Cellar/emacs-plus@28/28.0.50/Emacs.app" /Applications/Emacs.app`
 
 ### Troubleshooting environment path and variables
 
