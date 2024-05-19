@@ -2,6 +2,7 @@
 	name = Jeff Koenig
 	useConfigOnly = true
 	signingKey = 3B8E78934DCBF9C1
+	email = me@jeffk.org
 [core]
 	editor = vim
 	autocrlf = input
