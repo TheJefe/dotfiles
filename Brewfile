@@ -1,7 +1,6 @@
 # specify a directory to install
 cask_args appdir: '/Applications'
 # install packages
-tap 'homebrew/cask'
 brew 'git'
 brew 'bash'
 brew 'bash-completion@2'
@@ -29,6 +28,7 @@ brew 'ispell'
 brew 'gpg'
 brew 'pyenv'
 brew 'zsh-autosuggestions'
+brew 'ynqa/tap/jnv'
 brew 'shortcat'
 
 cask '1password-cli'
