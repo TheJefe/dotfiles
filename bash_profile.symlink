@@ -17,6 +17,9 @@ export PGHOST=localhost
 export PATH="/usr/local/heroku/bin:$PATH"
 alias herkou="heroku"
 
+### NVIM
+alias vim=nvim
+
 # change terminal
 #export PS1="\w$ "
 
@@ -273,9 +276,6 @@ complete -F _docker_logs dl
 alias dlf='docker logs -f'
 complete -F _docker_logs dlf
 
-# https://github.com/docker/for-mac/issues/6529
-export DOCKER_HOST="unix://$HOME/.docker/run/docker.sock"
-
 # Docker-compose
 alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
@@ -366,3 +366,5 @@ if  command -v npm &> /dev/null && command -v op &> /dev/null ; then
   export NPM_PATH=$(which npm)
   export PATH=$(dirname $(readlink $BASH_SOURCE))/bin:$PATH
 fi
+# Set default parameters for pandoc
+alias pandoc="pandoc -f gfm"
