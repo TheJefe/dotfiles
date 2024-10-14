@@ -31,6 +31,8 @@ brew 'zsh-autosuggestions'
 brew 'ynqa/tap/jnv'
 brew 'jc'
 brew 'pandoc'
+brew 'bluetoothconnector'
+
 
 cask '1password-cli'
 cask 'iterm2'
