@@ -75,6 +75,11 @@ autocmd BufRead,BufNewFile *.rb set sw=2 sts=2 et
 " Map leader
 :let mapleader = ","
 
+" Remove the space key from the default mapping
+nnoremap <SPACE> <Nop>
+" map space to comma to be used as a second leader
+map <Space> <Leader>
+
 " insert a single character
 :nmap <C-i> i_<Esc>r
 
@@ -87,6 +92,7 @@ set wildignore+=*.png,*.jpg,*.pdf,*.swf
 set rtp+=/usr/local/opt/fzf
 nnoremap <C-p> :Files<CR>
 nnoremap <leader>r :Files<CR>
+nnoremap <leader>ph :Files<CR>
 
 " save ctrlP cache
 let g:ctrlp_clear_cache_on_exit = 0
@@ -105,6 +111,7 @@ inoremap jj <ESC>
 " mapping the write command
 nnoremap ss :w<CR>
 
+nnoremap <leader>bb :Buffers<CR>
 " Give a shortcut key to NERD Tree
 map <leader>n :NERDTreeToggle<CR>
 
